@@ -5,6 +5,7 @@
 :root {
   --background: #000000;
   --foreground: #5162FF;
+  --color-white-solid: #FFFF
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,14 +16,56 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Roboto, Helvetica, sans-serif;
-  font-size: 24px;
+  color: var(--color-white-solid);
+  background-color: var(--background);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.nav-menu{
+  width: 940px;
+  height: 39px;
+  flex-shrink: 0;
+  margin-right: 250px;
+  margin-left: 250px;
+  margin-top: 20px;
 }
+
+nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 30px;
+  margin: 9px 163px 11px 408px;
+}
+
+.nav-menu .title{
+  color: var(--color-white-solid);
+  font-family: Roboto, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
+}
+
+nav a {
+  color: var(--color-white-solid, #FFF);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+nav a.active {
+  color: #5162FF;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
