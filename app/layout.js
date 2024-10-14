@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       >
       <nav>
           <Link href="/"> Конвертация </Link>
-          <Link href="/graphics"> Графики </Link>
+          <Link href="/charts"> Графики </Link>
       </nav>
         {children}
       </body>
