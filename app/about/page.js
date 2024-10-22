@@ -1,4 +1,4 @@
-export default function Charts(){
+export default function About(){
     return(
         <div>
             <h1>  </h1>
