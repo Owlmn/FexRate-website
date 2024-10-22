@@ -2,6 +2,7 @@
 
 import "./globals.css";
 import {Header} from "@/app/components/Header/Header";
+import {Footer} from "@/app/components/Footer/Footer";
 
 export default function RootLayout({ children }) {
 
@@ -9,6 +10,8 @@ export default function RootLayout({ children }) {
         <html lang="en">
         <body>
         <Header/>
+
+        <Footer/>
         {children}
         </body>
         </html>
