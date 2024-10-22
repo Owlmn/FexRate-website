@@ -10,6 +10,7 @@
 
 nav {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     gap: 30px;
     margin: 9px 140px 11px 280px;
@@ -38,11 +39,13 @@ nav a.active {
     width: 940px;
     height: 39px;
     display: flex;
-    /*justify-content: space-between;*/
     flex-shrink: 0;
     margin-right: 250px;
     margin-left: 250px;
     margin-top: 20px;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .nav-menu .title {

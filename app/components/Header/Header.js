@@ -10,7 +10,7 @@ export function Header({ children }) {
     return (
         <div>
         <div className="nav-menu">
-            <a className="title">FexRate</a>
+            <div className="title">FexRate</div>
             <nav>
                 <Link href="/" className={pathname === '/' ? 'active' : ''}>Конвертация</Link>
                 <Link href="/charts" className={pathname === '/charts' ? 'active' : ''}>Графики</Link>
