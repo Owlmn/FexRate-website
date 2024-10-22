@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #5162FF;
+  --color-white-solid: #FFFF;
+}
+
+
+body {
+  color: var(--color-white-solid);
+  background-color: var(--background);
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+

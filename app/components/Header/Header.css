@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #000000;
+    --foreground: #5162FF;
+    --color-white-solid: #FFFF;
+}
+
+nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 30px;
+    margin: 9px 140px 11px 280px;
+    white-space: nowrap;
+}
+
+nav a {
+    color: var(--color-white-solid);
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+nav a.active {
+    color: #5162FF;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.nav-menu {
+    width: 940px;
+    height: 39px;
+    display: flex;
+    /*justify-content: space-between;*/
+    flex-shrink: 0;
+    margin-right: 250px;
+    margin-left: 250px;
+    margin-top: 20px;
+}
+
+.nav-menu .title {
+    color: var(--color-white-solid);
+    font-family: Roboto, sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.login-button {
+    color: #FFF;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    display: inline-flex;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+
+    border-radius: 10px;
+    background: #2433BD;
+}
+
+.login-button img{
+    width: 19px;
+    height: 17px;
+}
+
+
+
