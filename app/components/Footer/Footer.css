@@ -6,6 +6,8 @@
 .footer-box {
     width: 1440px;
     height: 393px;
+    display: inline-flex;
+    align-items: center;
     flex-shrink: 0;
     background: #131313;
     position: absolute;
@@ -17,7 +19,7 @@
     width: 377px;
     height: 219px;
     flex-shrink: 0;
-    margin: 137px 812px 37px 251px;
+    margin: 137px 0 37px 250px;
 }
 
 .block_1 .list {
@@ -59,4 +61,52 @@
     align-items: center;
     gap: 13px;
     white-space: nowrap;
+}
+
+.block_2 {
+    width: 207px;
+    height: 204px;
+    margin: 137px 15px 52px 185px;
+}
+
+.block_3 {
+    width: 156px;
+    height: 98px;
+    margin: 137px 249px 158px 15px;
+}
+
+.list2 {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.f2-title {
+    color: #FFF;
+    font-family: Roboto, sans-serif ;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text2 {
+    color: #CDCED7;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 29px;
+}
+
+.list2 ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list2 ul li {
+    margin-bottom: 15px;
 }
