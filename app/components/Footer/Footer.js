@@ -7,21 +7,47 @@ import Image2 from "./github.svg"
 export function Footer({children}){
 
     return(
-        <div className="footer-box">
-            <div className="block_1">
-                <div className="list">
-                    <div className="f-title">
-                        FexRate
+        <div>
+            <div className="footer-box">
+                <div className="block_1">
+                    <div className="list">
+                        <div className="f-title">
+                            FexRate
+                        </div>
+                        <div className="text1">Создано FexRate Team</div>
+                        <div className="logo">
+                            <a href="https://t.me/DerekHax">
+                                <Image src={Image1} alt=""/>
+                            </a>
+                            <a href="https://github.com/Owlmn/FexRate-website">
+                                <Image src={Image2} alt=""/>
+                            </a>
+                        </div>
+                        <div className="text2">Copyright © 2024 FexRate Team. All Rights Reserved</div>
                     </div>
-                    <div className="text1">Создано FexRate Team</div>
-                    <div className="logo">
-                        <Image src={Image1} alt=""/>
-                        <Image src={Image2} alt=""/>
+                </div>
+                <div className="block_2">
+                    <div className="list2">
+                        <div className="f2-title">FexRate</div>
+                        <ul className="text2">
+                            <Link href="/"><li>Конвертация</li></Link>
+                            <Link href="/charts"><li>Графики</li></Link>
+                            <Link href="/about"><li>О нас</li></Link>
+                            <Link href="/partnership"><li>Сотрудничество</li></Link>
+                        </ul>
                     </div>
-                    <div className="text2">Copyright © 2024 FexRate Team. All Rights Reserved</div>
+                </div>
+                <div className="block_3">
+                    <div className="list2">
+                        <div className="f2-title">Информация</div>
+                        <ul className="text2">
+                            <li>Поддержка</li>
+                            <li>Правила</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-
+            {children}
         </div>
     );
 
