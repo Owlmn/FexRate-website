@@ -8,6 +8,10 @@
     --color-white-solid: #FFFF;
 }
 
+.box {
+    position: fixed; top: 0; left: 0;
+}
+
 nav {
     display: inline-flex;
     justify-content: center;
@@ -43,9 +47,6 @@ nav a.active {
     margin-right: 250px;
     margin-left: 250px;
     margin-top: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 .nav-menu .title {

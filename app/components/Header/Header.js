@@ -8,7 +8,7 @@ export function Header({ children }) {
     const pathname = usePathname();
 
     return (
-        <div>
+        <div className="box">
         <div className="nav-menu">
             <div className="title">FexRate</div>
             <nav>
