@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.about-block {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 250px 0 250px;
+    width: 940px;
+    height: 558px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background-color: #131313;
+}
+
+.text {
+    color: var(--color-white-solid);
+    font-family: Roboto, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
