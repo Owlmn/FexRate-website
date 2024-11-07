@@ -1,0 +1,287 @@
+.personalCabinet {
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  padding: 19px 0 9px;
+}
+
+.mainContent {
+  display: flex;
+  width: 940px;
+  max-width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  width: 940px;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title {
+  color: #fff;
+  font: 500 24px Roboto, sans-serif;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatarContainer {
+  background-color: #b3d3ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.username {
+  color: #fff;
+  font: 400 16px/1 Roboto, sans-serif;
+}
+
+.leftColumn {
+  width: 61%;
+}
+
+.rightColumn {
+  width: 39%;
+}
+
+.sectionTitle {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 12px 33px;
+  border-radius: 10px;
+  font: 400 16px/1 Roboto, sans-serif;
+  margin-bottom: 24px;
+}
+
+.userInfo {
+  margin-bottom: 33px;
+}
+
+.userInfoGrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 9px 20px;
+}
+
+.fieldLabel {
+  color: #fff;
+  font: 300 16px/1 Roboto, sans-serif;
+  margin-top: 10px;
+}
+
+.fieldValue {
+  background-color: #131313;
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font: 400 16px/1 Roboto, sans-serif;
+}
+
+.passwordField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showPasswordIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.favorites {
+  margin-bottom: 33px;
+}
+
+.favoritesList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 21px;
+}
+
+.favoriteItem {
+  background-color: #131313;
+  border-radius: 10px;
+  padding: 9px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.currencyInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.currencyIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.currencyCode {
+  color: #fff;
+  font: 500 16px/1 Roboto, sans-serif;
+}
+
+.currencyValue {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #5162ff;
+  font: 400 16px/1 Roboto, sans-serif;
+}
+
+.trendIcon {
+  width: 15px;
+  height: 16px;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.actionButton {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font: 400 16px Roboto, sans-serif;
+  padding: 13px 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.transactionHistory {
+  background-color: #131313;
+  border-radius: 30px 20px 20px 20px;
+  padding: 40px 25px;
+}
+
+.transactionList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transactionItem {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 13px 25px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #a7b0bd;
+  font: 500 16px/1 Roboto, sans-serif;
+}
+
+.transactionId {
+  min-width: 20px;
+}
+
+.currencyPair {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.arrowIcon {
+  width: 18px;
+  height: 9px;
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    flex-direction: column;
+  }
+  .leftColumn,
+  .rightColumn {
+    width: 100%;
+  }
+
+  .sectionTitle {
+    padding: 12px 20px;
+  }
+
+  .userInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .favoritesList {
+    grid-template-columns: 1fr;
+  }
+
+  .transactionHistory {
+    margin-top: 40px;
+    border-radius: 30px 20px 20px 20px;
+    padding: 40px 25px;
+  }
+
+  .transactionItem {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .transactionId {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.leftColumn {
+  flex: 3;
+}
+
+.rightColumn {
+  flex: 1;
+}
