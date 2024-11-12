@@ -8,9 +8,9 @@ export function Header({ children }) {
     const pathname = usePathname();
 
     return (
-        <div>
+        <div className="box">
         <div className="nav-menu">
-            <div className="title">FexRate</div>
+            <Link href="/" className="title">FexRate</Link>
             <nav>
                 <Link href="/" className={pathname === '/' ? 'active' : ''}>Конвертация</Link>
                 <Link href="/charts" className={pathname === '/charts' ? 'active' : ''}>Графики</Link>

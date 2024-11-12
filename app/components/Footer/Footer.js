@@ -11,9 +11,9 @@ export function Footer({children}){
             <div className="footer-box">
                 <div className="block_1">
                     <div className="list">
-                        <div className="f-title">
+                        <Link href="/" className="f-title">
                             FexRate
-                        </div>
+                        </Link>
                         <div className="text1">Создано FexRate Team</div>
                         <div className="logo">
                             <a href="https://t.me/DerekHax">
@@ -28,7 +28,7 @@ export function Footer({children}){
                 </div>
                 <div className="block_2">
                     <div className="list2">
-                        <div className="f2-title">FexRate</div>
+                        <Link href="/" className="f2-title">FexRate</Link>
                         <ul className="text2">
                             <Link href="/"><li>Конвертация</li></Link>
                             <Link href="/charts"><li>Графики</li></Link>

@@ -10,9 +10,6 @@
     align-items: center;
     flex-shrink: 0;
     background: #131313;
-    position: absolute;
-    left: 0;
-    bottom: 0;
 }
 
 .block_1 {

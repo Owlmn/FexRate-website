@@ -8,6 +8,14 @@
     --color-white-solid: #FFFF;
 }
 
+.box {
+    height: 69px;
+    background-color: rgba(0 0 0 / 80%);
+    backdrop-filter: blur(20px);
+    position: fixed; top: 0; left: 0;
+    z-index: 100;
+}
+
 nav {
     display: inline-flex;
     justify-content: center;
@@ -43,9 +51,6 @@ nav a.active {
     margin-right: 250px;
     margin-left: 250px;
     margin-top: 20px;
-    position: absolute;
-    left: 0;
-    top: 0;
 }
 
 .nav-menu .title {
