@@ -4,7 +4,6 @@
 
 
 .convert {
-    margin: 0 250px 0 250px;
     width: 940px;
     height: 558px;
     flex-shrink: 0;
@@ -30,7 +29,6 @@
 }
 
 .exchange_method {
-    /*position: relative;*/
     width: 593px;
     height: 58px;
     transform: skew(38deg);
@@ -121,15 +119,21 @@ input[type="text"] {
 }
 
 .currency_type {
+    display: flex;
+    align-items: center;
     width: 241px;
     height: 81px;
     flex-shrink: 0;
     border-radius: 0 20px 20px 0;
     background: #A7B0BD;
+    gap: 18px
+}
+
+.icon {
+    margin-left: 20px;
 }
 
 .currency_type_text {
-    margin: 31px 101px 27px 78px;
     color: #272727;
     font-family: Roboto, sans-serif;
     font-size: 32px;

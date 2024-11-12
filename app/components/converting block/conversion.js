@@ -1,20 +1,35 @@
 "use client";
 
 import "./conversion.css"
-import {useState} from "react";
+import {useState, useEffect} from "react";
+import Image from "next/image";
+import USD from "/app/icons/usd.svg"
+import RUB from "/app/icons/rub.svg"
 
 export function Conversion({children}){
     const [activeButton, setActiveButton] = useState("Валюта");
     const [dollars, setDollars] = useState("");
     const [rubles, setRubles] = useState("");
-    const exchangeRate = 94.56;
+    const [exchangeRate, setExchangeRate] = useState("");
+
+    useEffect(() => {
+        (async () => {
+            let date = new Date();
+            let [, year, month, day] = date.toJSON().match('([0-9]+)-([0-9]+)-([0-9]+)')
+            console.log([day, month, year]);
+            const response = await fetch(`https://www.cbr-xml-daily.ru/archive/${year}/${month}/${day}/daily_json.js`);
+            const json = await response.json();
+            setExchangeRate(json.Valute.USD.Value);
+        })()},
+        []
+    );
 
     const handleConvert = () => {
         const dollarsValue = parseFloat(dollars.replace(",", "."));
         if (!isNaN(dollarsValue)) {
-            setRubles((dollarsValue * exchangeRate).toFixed(2));
+            setRubles((dollarsValue * exchangeRate).toFixed(4));
         } else {
-            setRubles(null);
+            setRubles("");
         }
     };
 
@@ -62,6 +77,7 @@ export function Conversion({children}){
                             onChange={(e) => setDollars(e.target.value)}
                         />
                         <div className="currency_type">
+                            <Image src={USD} alt="" className="icon"/>
                             <div className="currency_type_text">USD</div>
                         </div>
                     </div>
@@ -80,10 +96,9 @@ export function Conversion({children}){
                             readOnly
                             placeholder={exchangeRate}
                         />
-                        {/*<div className="output_value">*/}
-                        {/*    {rubles !== null ? `${Number(rubles).toLocaleString("ru-RU")} RUB` : "0 RUB"}*/}
-                        {/*</div>*/}
+
                         <div className="currency_type">
+                            <Image src={RUB} alt="" className="icon"/>
                             <div className="currency_type_text">RUB</div>
                         </div>
 
