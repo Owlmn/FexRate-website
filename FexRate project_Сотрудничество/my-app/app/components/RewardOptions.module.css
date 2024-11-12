@@ -1,0 +1,74 @@
+.rewardOptions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.title {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  max-width: 631px;
+  margin-bottom: 84px;
+}
+
+.optionsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 940px;
+}
+
+.optionCard {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 56px 49px 31px;
+  width: calc(50% - 10px);
+}
+
+.iconContainer {
+  background-color: #393939;
+  border-radius: 50%;
+  width: 41px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.icon {
+  color: #777;
+  font-size: 24px;
+}
+
+.optionTitle {
+  color: #131313;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.optionDescription {
+  color: #707070;
+  font-size: 16px;
+}
+
+@media (max-width: 991px) {
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .optionsContainer {
+    flex-direction: column;
+  }
+
+  .optionCard {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 30px 20px;
+  }
+}
