@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <body>
           {pathname !== '/login_page' && <Header />}
           <main>{children}</main>
-          <Footer />
+          {pathname !== '/login_page' && <Footer />}
         </body>
         </html>
     );

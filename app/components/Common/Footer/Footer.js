@@ -32,7 +32,7 @@ export function Footer({children}){
                         <ul className="text2">
                             <Link href="/"><li>Конвертация</li></Link>
                             <Link href="/charts"><li>Графики</li></Link>
-                            <Link href="/about/page"><li>О нас</li></Link>
+                            <Link href="/about"><li>О нас</li></Link>
                             <Link href="/partnership"><li>Сотрудничество</li></Link>
                         </ul>
                     </div>
