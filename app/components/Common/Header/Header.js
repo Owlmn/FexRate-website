@@ -16,7 +16,7 @@ export function Header({ children }) {
                 <Link href="/charts" className={pathname === '/charts' ? 'active' : ''}>Графики</Link>
                 <Link href="/about" className={pathname === '/about' ? 'active' : ''}>О нас</Link>
                 <Link href="/partnership" className={pathname === '/partnership' ? 'active' : ''}>Сотрудничество</Link>
-                <Link href="/login-page">
+                <Link href="/login_page">
                     <button className="login-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
                         <path

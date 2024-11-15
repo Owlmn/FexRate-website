@@ -1,5 +1,5 @@
-import "./about.css"
-import "../globals.css"
+import "@/app/about/about_components/about.css"
+import "../styles/globals.css"
 
 export default function About(){
     return (
