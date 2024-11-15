@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './AuthorizationSignIn.module.css';
+import Link from "next/link";
 import GlobalStyles from './globals.css';
 
 const AuthorizationSignIn = () => {
@@ -20,7 +21,7 @@ const AuthorizationSignIn = () => {
     <main className={styles.container}>
       <div className={styles.content}>
         <header className={styles.header}>
-          <h1 className={styles.logo}>FexRate</h1>
+          <Link href="/"> <h1 className={styles.logo}>FexRate</h1></Link>
           {/* <nav className={styles.navItem}>
             <img src="/images/home-icon.svg" alt="" className={styles.navIcon} />
             <span>Главная</span>
