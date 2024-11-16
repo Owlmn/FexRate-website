@@ -1,17 +1,22 @@
 import React from "react";
 import styles from "./ContactInfo.module.css";
+import Image from "next/image";
+import Image3 from "./telegram.svg";
+import Image4 from "./email.svg";
 
 function ContactInfo() {
   const contactMethods = [
     {
       title: "Рабочая почта",
-      icon: "@",
+      icon: <Image src={Image4} alt="" />,
       buttonText: "Связаться",
+      link: "https://workspace.google.com/intl/ru/gmail",
     },
     {
       title: "Telegram",
-      icon: "https://cdn.builder.io/api/v1/image/assets/449dd0928ae94f98b3877c3e4f2d9f26/fbf509207c2dcf6aa4d5ea144a6ff147e4929a04a9c54c983c82d8b86e94f29d?apiKey=449dd0928ae94f98b3877c3e4f2d9f26&",
+      icon: <Image src={Image3} alt="" />,
       buttonText: "Связаться",
+      link: "https://t.me/eruma1ra",
     },
   ];
 
@@ -30,9 +35,14 @@ function ContactInfo() {
                 <span className={styles.contactIcon}>{method.icon}</span>
               )}
             </div>
-            <button className={styles.contactButton}>
+            <a
+              href={method.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contactButton}
+            >
               {method.buttonText}
-            </button>
+            </a>
           </div>
         ))}
       </div>
