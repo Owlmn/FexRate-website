@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./CallToAction.module.css";
+import Link from "next/link";
 
 const CallToAction = () => {
   return (
@@ -26,7 +27,9 @@ const CallToAction = () => {
         <p className={styles.ctaDescription}>
           Так просто и удобно не было никогда
         </p>
-        <button className={styles.ctaButton}>Перейти</button>
+        <Link href="/">
+          <button className={styles.ctaButton}>Перейти</button>
+        </Link>
       </div>
       <div className={styles.ctaIcons}>
         <img

@@ -1,5 +1,6 @@
 .features {
   padding: 60px 20px;
+  background-color: #010101; /* Фон страницы */
 }
 
 .featuresTitle {
@@ -7,13 +8,13 @@
   font-size: 32px;
   font-weight: 500;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .featureGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr); /* Две карточки в ряд */
+  grid-gap: 30px;
   max-width: 1015px;
   margin: 0 auto;
 }
@@ -21,22 +22,42 @@
 .featureCard {
   background-color: #131313;
   border-radius: 30px;
-  padding: 30px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.featureImageWrapper {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.featureImage {
+  max-width: 100px; /* Размер изображения */
+  height: auto;
 }
 
 .featureTitle {
   color: #fff;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .featureDescription {
   color: #fff;
   font-size: 16px;
   margin-bottom: 20px;
+  font-weight: 300;
 }
 
 .featureButton {
@@ -46,12 +67,11 @@
   border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 16px;
-  align-self: flex-start;
+  font-size: 14px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
   .featureGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Одноколоночная сетка для мобильных */
   }
 }
