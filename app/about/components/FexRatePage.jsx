@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "./Hero";
 import Slider from "./Slider";
 import AboutUs from "./AboutUs";
 import Features from "./Features";
@@ -11,7 +10,6 @@ const FexRatePage = () => {
   return (
     <div className={styles.fexRatePage}>
       <main>
-        <Hero />
         <Slider />
         <AboutUs />
         <Features />
