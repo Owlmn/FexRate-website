@@ -1,0 +1,50 @@
+.advantages {
+  padding: 60px 20px;
+  background-color: #010101;
+}
+
+.advantagesTitle {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.advantageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1015px;
+  margin: 0 auto;
+}
+
+.advantageCard {
+  background-color: #131313;
+  border-radius: 30px;
+  padding: 30px;
+  text-align: center;
+}
+
+.advantageTitle {
+  color: #5162ff;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.advantageDescription {
+  color: #fff;
+  font-size: 16px;
+}
+
+@media (max-width: 991px) {
+  .advantageGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .advantageGrid {
+    grid-template-columns: 1fr;
+  }
+}
