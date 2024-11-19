@@ -3,8 +3,8 @@ import styles from "./Features.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import conversionImage1 from "./img/calculator.svg";
-import conversionImage2 from "./img/rocket.svg";
-import conversionImage3 from "./img/chart.svg";
+import conversionImage2 from "./img/chart.svg";
+import conversionImage3 from "./img/rocket.svg";
 import conversionImage4 from "./img/dollar.svg";
 
 const FeatureCard = ({ title, description, buttonText, image }) => (

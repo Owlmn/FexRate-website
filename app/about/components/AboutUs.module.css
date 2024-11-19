@@ -2,6 +2,16 @@
   background-color: #131313;
   padding: 60px 20px;
   margin-top: 60px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .aboutUsTitle {
@@ -11,6 +21,9 @@
   text-align: center;
   margin-bottom: 50px;
   margin-right: 880px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 0.2s ease-out forwards;
 }
 
 .aboutUsContent {
@@ -19,22 +32,34 @@
   align-items: center;
   max-width: 1015px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 0.4s ease-out forwards;
 }
 
 .aboutUsImage {
   width: 50%;
   max-width: 500px;
   border-radius: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 0.6s ease-out forwards;
 }
 
 .aboutUsDescription {
   width: 45%;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 0.8s ease-out forwards;
 }
 
 .aboutUsSubtitle {
   color: #fff;
   font-size: 32px;
   margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 1s ease-out forwards;
 }
 
 .aboutUsText {
@@ -42,6 +67,9 @@
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s 1.2s ease-out forwards;
 }
 
 @media (max-width: 991px) {
