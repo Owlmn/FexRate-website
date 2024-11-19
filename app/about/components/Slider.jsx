@@ -23,19 +23,21 @@ const Slider = () => {
 
   return (
     <div className={styles.sliderWrapper}>
-      {/* Слайды */}
-      <div className={styles.slider}>
-        <div
-          className={styles.slides}
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {slides.map((color, index) => (
-            <div
-              key={index}
-              className={styles.slide}
-              style={{ backgroundColor: color }}
-            ></div>
-          ))}
+      <div className={styles.sliderContainer}>
+        {/* Слайды */}
+        <div className={styles.slider}>
+          <div
+            className={styles.slides}
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+          >
+            {slides.map((color, index) => (
+              <div
+                key={index}
+                className={styles.slide}
+                style={{ backgroundColor: color }}
+              ></div>
+            ))}
+          </div>
         </div>
 
         {/* Стрелки */}
