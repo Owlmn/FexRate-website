@@ -37,6 +37,12 @@
   font-size: 16px;
   cursor: pointer;
   margin-bottom: 47px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.actionButton:hover {
+  background-color: #5162ff;
+  color: #fff;
 }
 
 .partnershipImage {

@@ -28,12 +28,7 @@ function ContactInfo() {
           <div key={index} className={styles.contactCard}>
             <div className={styles.contactHeader}>
               <h3 className={styles.contactTitle}>{method.title}</h3>
-              {typeof method.icon === "string" &&
-              method.icon.startsWith("http") ? (
-                <img src={method.icon} alt="" className={styles.contactIcon} />
-              ) : (
-                <span className={styles.contactIcon}>{method.icon}</span>
-              )}
+              <div className={styles.contactIcon}>{method.icon}</div>
             </div>
             <a
               href={method.link}
