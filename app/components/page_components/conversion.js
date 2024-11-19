@@ -3,10 +3,10 @@
 import "./conversion.css"
 import {useState, useEffect} from "react";
 import Image from "next/image";
-import USD from "/app/icons/usd.svg"
-import RUB from "/app/icons/rub.svg"
+import USD from "/app/public/icons/usd.svg"
+import RUB from "/app/public/icons/rub.svg"
 
-export function Conversion({children}){
+export default function Conversion({children}){
     const [activeButton, setActiveButton] = useState("Валюта");
     const [dollars, setDollars] = useState("");
     const [rubles, setRubles] = useState("");

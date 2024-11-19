@@ -1,5 +1,5 @@
-import "./charts.css"
-import "../globals.css"
+import "@/app/charts/charts_components/charts.css"
+import "../styles/globals.css"
 
 export default function Charts(){
     return(
