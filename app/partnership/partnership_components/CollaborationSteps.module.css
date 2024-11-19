@@ -1,7 +1,7 @@
 .collaborationSteps {
   background-color: #000;
   color: #fff;
-  padding: 50px 0;
+  padding: 50px 20px;
   text-align: center;
 }
 
@@ -20,7 +20,7 @@
 .stepsContainer {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .stepCard {
