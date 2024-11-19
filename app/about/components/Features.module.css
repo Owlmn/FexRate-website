@@ -9,26 +9,28 @@
   font-weight: 500;
   text-align: center;
   margin-bottom: 50px;
+  margin-right: 440px;
 }
 
 .featureGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Две карточки в ряд */
   grid-gap: 30px;
-  max-width: 1015px;
+  max-width: 1000px; /* Максимальная ширина сетки */
   margin: 0 auto;
 }
 
 .featureCard {
   background-color: #131313;
   border-radius: 30px;
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
 }
 
 .featureCard:hover {
@@ -45,6 +47,7 @@
 .featureImage {
   max-width: 100px; /* Размер изображения */
   height: auto;
+  border-radius: 10px;
 }
 
 .featureTitle {
@@ -56,7 +59,7 @@
 .featureDescription {
   color: #fff;
   font-size: 16px;
-  margin-bottom: 20px;
+  margin-bottom: 70px;
   font-weight: 300;
 }
 
@@ -68,6 +71,10 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 14px;
+  align-self: flex-start;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
 }
 
 @media (max-width: 768px) {
