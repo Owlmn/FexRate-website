@@ -4,10 +4,9 @@
 
 :root {
   --background: #000000;
-  --foreground: #5162FF;
-  --color-white-solid: #FFFF;
+  --foreground: #5162ff;
+  --color-white-solid: #ffff;
 }
-
 
 body {
   color: var(--color-white-solid);
@@ -42,7 +41,7 @@ body {
   height: 430px;
   flex-shrink: 0;
   border-radius: 430px;
-  background: #5162FF;
+  background: #5162ff;
   margin: -90px 0 0 -345px;
   filter: blur(500px);
   z-index: -10;
@@ -53,14 +52,14 @@ body {
   height: 430px;
   flex-shrink: 0;
   border-radius: 430px;
-  background: #933FFE;
+  background: #933ffe;
   filter: blur(500px);
   margin: -90px 0 0 795px;
   z-index: -10;
 }
 
 .section2_text {
-  color: #FFF;
+  color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 32px;
   font-style: normal;
@@ -103,11 +102,11 @@ body {
   flex-shrink: 0;
   margin-bottom: 4px;
   border-radius: 30px;
-  background: #1E1E1E;
+  background: #1e1e1e;
 }
 
 .section2_example_block .section2_text {
-  color: #A7B0BD;
+  color: #a7b0bd;
   margin: 0 0 0 38px;
   padding-right: 31px;
 }
@@ -169,12 +168,12 @@ body {
   position: absolute;
   width: 341px;
   margin: 175px 0 0 60px;
-  color: #FFF;
+  color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 23px
+  line-height: 23px;
 }
 
 .section3_img_2 {
@@ -222,7 +221,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-shrink: 0;
-  gap: 34px
+  gap: 34px;
 }
 
 .step_item {
@@ -233,7 +232,7 @@ body {
   align-items: center;
   flex-shrink: 0;
   border-radius: 20px;
-  background: #D9D9D9;
+  background: #d9d9d9;
 }
 
 .number {
@@ -246,7 +245,7 @@ body {
 }
 
 .number_special {
-  color: #5162FF;
+  color: #5162ff;
   font-family: Roboto, sans-serif;
   font-size: 32px;
   font-style: normal;
@@ -292,7 +291,7 @@ body {
 .review_link {
   position: absolute;
   margin: 167px 0 0 480px;
-  color: #5162FF;
+  color: #5162ff;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -308,14 +307,14 @@ body {
   flex-direction: column;
   align-items: center;
   border-radius: 30px;
-  background: #FFFFFF;
+  background: #ffffff;
   flex-shrink: 0;
 }
 
 .section6_text {
   margin-top: 33px;
   color: #272727;
-  font-family: Roboto, sans-serif ;
+  font-family: Roboto, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: bolder;
@@ -324,7 +323,7 @@ body {
 
 .section6_text1 {
   margin-top: 22px;
-  color: #5D5D5D;
+  color: #5d5d5d;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -340,7 +339,7 @@ body {
   align-items: center;
   gap: 10px;
   border-radius: 20px;
-  background: #2433BD;
+  background: #2433bd;
 }
 
 .btn_link_to_convers .description {

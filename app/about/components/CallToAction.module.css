@@ -1,0 +1,71 @@
+.callToAction {
+  background-color: #131313;
+  border-radius: 30px;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1015px;
+  margin: -40px auto 60px auto;
+  transition: transform 0.3s ease;
+}
+
+.callToAction:hover {
+  transform: scale(1.05);
+}
+
+.ctaIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ctaIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaTitle {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.ctaDescription {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.ctaButton {
+  background-color: #fff;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #5162ff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+  .callToAction {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .ctaIcons {
+    flex-direction: row;
+  }
+}

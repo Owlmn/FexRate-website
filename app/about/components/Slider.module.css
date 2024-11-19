@@ -1,0 +1,83 @@
+.sliderWrapper {
+  position: relative;
+  margin: 0 auto;
+  margin-top: 90px;
+  width: 90%;
+  max-width: 1200px;
+  text-align: center;
+}
+
+/* Контейнер для слайдера и стрелок */
+.sliderContainer {
+  position: relative;
+  width: 100%;
+}
+
+/* Контейнер слайдера */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Слайды */
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 650px; /*  Высота слайдов */
+}
+
+/* Стрелки */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  font-size: 2.5rem;
+  color: #5162ff;
+  cursor: pointer;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.leftArrow {
+  left: -70px; /* Смещение стрелки за границу контейнера */
+}
+
+.rightArrow {
+  right: -70px; /* Смещение стрелки за границу контейнера */
+}
+
+/* Индикаторы */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  margin: 0 7px;
+  background: #d1d1d1;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.dot.active {
+  background: #5162ff;
+}
