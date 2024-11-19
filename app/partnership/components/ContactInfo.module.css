@@ -3,14 +3,36 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .title {
-  color: #5162ff;
+  color: #fff;
   font-size: 32px;
   font-weight: 500;
   text-align: center;
   margin-bottom: 54px;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .contactContainer {
@@ -19,17 +41,23 @@
   gap: 20px;
   width: 100%;
   max-width: 1200px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .contactCard {
   background-color: #131313;
   border-radius: 30px;
-  padding: 40px 20px;
+  padding: 40px 40px 40px 60px; /* Увеличен отступ слева для сдвига */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 458px;
   height: 221px;
+  transition: transform 0.3s ease;
+}
+
+.contactCard:hover {
+  transform: scale(1.05);
 }
 
 .contactHeader {
@@ -89,6 +117,12 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #5162ff;
+  color: #fff;
 }
 
 @media (max-width: 991px) {
@@ -99,6 +133,6 @@
 
   .contactCard {
     width: 100%;
-    padding: 30px 20px;
+    padding: 30px 40px 30px 60px; /* Увеличен отступ слева для сдвига */
   }
 }
