@@ -15,9 +15,11 @@ export default function Conversion({children}){
     useEffect(() => {
         (async () => {
             let date = new Date();
-            let [, year, month, day] = date.toJSON().match('([0-9]+)-([0-9]+)-([0-9]+)')
-            console.log([day, month, year]);
-            const response = await fetch(`https://www.cbr-xml-daily.ru/archive/${year}/${month}/${day}/daily_json.js`);
+            // date = new Date(date - date.getTimezoneOffset() * 60 * 1000);
+            // console.log(date)
+            // let [, year, month, day] = date.toJSON().match('([0-9]+)-([0-9]+)-([0-9]+)')
+            // console.log([day, month, year]);
+            const response = await fetch(`https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}/daily_json.js`);
             const json = await response.json();
             setExchangeRate(json.Valute.USD.Value);
         })()},
