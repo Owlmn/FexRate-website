@@ -21,6 +21,7 @@
   display: flex;
   justify-content: center;
   gap: 30px;
+  flex-wrap: wrap; /* Добавляем обертку для flex-элементов */
 }
 
 .stepCard {
@@ -40,4 +41,83 @@
 .stepDescription {
   font-size: 16px;
   line-height: 1.5;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+
+@media (max-width: 1200px) {
+  .stepsContainer {
+    gap: 20px;
+  }
+
+  .stepCard {
+    width: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .stepsContainer {
+    gap: 15px;
+  }
+
+  .stepCard {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .stepsContainer {
+    gap: 10px;
+  }
+
+  .stepCard {
+    width: 180px;
+  }
+
+  .stepNumber {
+    font-size: 2.5rem;
+  }
+
+  .stepDescription {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .collaborationSteps {
+    padding: 30px 10px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .stepsContainer {
+    gap: 5px;
+  }
+
+  .stepCard {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .stepNumber {
+    font-size: 2rem;
+  }
+
+  .stepDescription {
+    font-size: 12px;
+  }
 }
