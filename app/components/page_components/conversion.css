@@ -5,7 +5,7 @@
 
 .convert {
     width: 940px;
-    height: 558px;
+    height: 440px;
     flex-shrink: 0;
     border-radius: 40px;
     background-color: #131313;
@@ -166,22 +166,5 @@ input[type="text"] {
     flex-shrink: 0;
     border-radius: 20px;
     background: #D9D9D9;
-}
-
-.convert_button {
-    position: absolute;
-    margin: 432px 224px 53px 230px;
-    display: inline-flex;
-    padding: 30px 150px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 20px;
-    background: #2433BD;
-}
-
-.convert_button .conversion_text {
-    margin: 0 0 0 0;
-    font-size: 24px;
 }
 
