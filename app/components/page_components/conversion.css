@@ -2,186 +2,184 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .convert {
-    width: 940px;
-    height: 558px;
-    flex-shrink: 0;
-    border-radius: 40px;
-    background-color: #131313;
+  width: 940px;
+  height: 558px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background-color: #131313;
 }
 
 .temp {
-    width: 940px;
-    height: 558px;
-    display: inline-flex;
-    justify-content: normal;
+  width: 940px;
+  height: 558px;
+  display: inline-flex;
+  justify-content: normal;
 }
 
 .conversion_text {
-    margin: 24px 111px 511px 63px;
-    color: #FFF;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23px;
+  margin: 24px 111px 511px 63px;
+  color: #fff;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
 }
 
 .exchange_method {
-    width: 593px;
-    height: 58px;
-    transform: skew(38deg);
-    display: inline-flex;
-    justify-content: normal;
-    flex-shrink: 0;
-    border-radius: 0 0 0 16px;
-    background: #FFF;
-    gap: 7px;
+  width: 593px;
+  height: 58px;
+  transform: skew(38deg);
+  display: inline-flex;
+  justify-content: normal;
+  flex-shrink: 0;
+  border-radius: 0 0 0 16px;
+  background: #fff;
+  gap: 7px;
 }
 
 .rectangle {
-    margin-left: -36px;
-    width: 65px;
-    height: 58px;
-    flex-shrink: 0;
-    border-radius: 0 25px 0 0;
-    background: #FFF;
+  margin-left: -36px;
+  width: 65px;
+  height: 58px;
+  flex-shrink: 0;
+  border-radius: 0 25px 0 0;
+  background: #fff;
 }
 
 .conversion_text2 {
-    margin: 18px 67px 17px 55px;
-    transform: skew(-38deg);
-    color: #131313;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23px;
+  margin: 18px 67px 17px 55px;
+  transform: skew(-38deg);
+  color: #131313;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
 }
 
 .currency_button {
-    width: auto;
-    height: auto;
-    padding: 10px 20px;
-    margin: 8px 0 0 0;
-    display: inline-flex;
-    transform: skew(-38deg);
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px 20px 0 0;
-    background: #131313;
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  margin: 8px 0 0 0;
+  display: inline-flex;
+  transform: skew(-38deg);
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px 20px 0 0;
+  background: #131313;
 }
 
 .currency_button.active {
-    background: #2433BD;
+  background: #2433bd;
 }
 
 .currency_button .conversion_text {
-    margin: 0 0 0 0;
+  margin: 0 0 0 0;
 }
 
 .input_currency {
-    position: absolute;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 820px;
-    height: 81px;
-    margin: 150px 0 0 63px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: #D9D9D9;
+  position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 820px;
+  height: 81px;
+  margin: 150px 0 0 63px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #d9d9d9;
 }
 
 .input_text {
-    margin: 29px 0 29px 45px;
-    color: #606E80;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 23px;
+  margin: 29px 0 29px 45px;
+  color: #606e80;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 23px;
 }
 
 input[type="text"] {
-    background: transparent;
-    border: none;
-    outline: none;
-    height: 32px;
-    color: #272727;
-    text-align: right;
-    font-family: Roboto, sans-serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 23px;
+  background: transparent;
+  border: none;
+  outline: none;
+  height: 32px;
+  color: #272727;
+  text-align: right;
+  font-family: Roboto, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
 }
 
 .currency_type {
-    display: flex;
-    align-items: center;
-    width: 241px;
-    height: 81px;
-    flex-shrink: 0;
-    border-radius: 0 20px 20px 0;
-    background: #A7B0BD;
-    gap: 18px
+  display: flex;
+  align-items: center;
+  width: 241px;
+  height: 81px;
+  flex-shrink: 0;
+  border-radius: 0 20px 20px 0;
+  background: #a7b0bd;
+  gap: 18px;
 }
 
 .icon {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .currency_type_text {
-    color: #272727;
-    font-family: Roboto, sans-serif;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 23px;
+  color: #272727;
+  font-family: Roboto, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
 }
 
 .switch {
-    position: absolute;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 239px 0 0 823px;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    background: #D9D9D9;
-    border-radius: 10px;
+  position: absolute;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 239px 0 0 823px;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  background: #d9d9d9;
+  border-radius: 10px;
 }
 
 .output_currency {
-    position: absolute;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 820px;
-    height: 81px;
-    margin: 288px 0 0 63px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    background: #D9D9D9;
+  position: absolute;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 820px;
+  height: 81px;
+  margin: 288px 0 0 63px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #d9d9d9;
 }
 
 .convert_button {
-    position: absolute;
-    margin: 432px 224px 53px 230px;
-    display: inline-flex;
-    padding: 30px 150px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 20px;
-    background: #2433BD;
+  position: absolute;
+  margin: 432px 224px 53px 230px;
+  display: inline-flex;
+  padding: 30px 150px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background: #2433bd;
 }
 
 .convert_button .conversion_text {
-    margin: 0 0 0 0;
-    font-size: 24px;
+  margin: 0 0 0 0;
+  font-size: 24px;
 }
-
