@@ -14,6 +14,8 @@ const UserInfo = () => {
   ]);
 
   const [showPassword, setShowPassword] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(null); // Состояние для отслеживания активного элемента
 
   useEffect(() => {
     const savedFields = localStorage.getItem("userFields");
@@ -32,10 +34,16 @@ const UserInfo = () => {
   const handleSave = () => {
     localStorage.setItem("userFields", JSON.stringify(userFields));
     console.log("Сохранено:", userFields);
+    setShowSuccessMessage(true);
+    setTimeout(() => setShowSuccessMessage(false), 3000); // Скрыть сообщение через 3 секунды
   };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleItemClick = (index) => {
+    setActiveIndex(index);
   };
 
   return (
@@ -44,7 +52,14 @@ const UserInfo = () => {
       <div className={styles.userInfoGrid}>
         {userFields.map((field, index) => (
           <React.Fragment key={index}>
-            <div className={styles.fieldLabel}>{field.label}</div>
+            <div
+              className={`${styles.fieldLabel} ${
+                activeIndex === index ? styles.active : ""
+              }`}
+              onClick={() => handleItemClick(index)}
+            >
+              {field.label}
+            </div>
             <div className={styles.fieldValue}>
               {field.isPassword ? (
                 <div className={styles.passwordField}>
@@ -80,6 +95,9 @@ const UserInfo = () => {
         </button>
         <ActionButtons />
       </div>
+      {showSuccessMessage && (
+        <div className={styles.successMessage}>Изменения успешно сохранены</div>
+      )}
     </section>
   );
 };

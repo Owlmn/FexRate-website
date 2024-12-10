@@ -105,9 +105,15 @@
   padding: 11px 20px;
   border-radius: 10px;
   font: 400 16px/1 Roboto, sans-serif;
-  border: none;
+  border: none; /* Убираем обводку по умолчанию */
   width: 100%;
   box-sizing: border-box;
+  transition: border 0.3s ease; /* Плавный переход для обводки */
+}
+
+.inputField:focus {
+  border: none; /* Убираем обводку при фокусе */
+  outline: none; /* Убираем стандартную обводку */
 }
 
 .passwordField {
@@ -342,4 +348,18 @@
 
 .favoriteItem:hover {
   transform: scale(1.05);
+}
+
+.successMessage {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font: 400 16px Roboto, sans-serif;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
