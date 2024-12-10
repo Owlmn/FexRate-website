@@ -3,6 +3,16 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .title {
@@ -11,6 +21,18 @@
   font-weight: 500;
   text-align: center;
   margin-bottom: 30px;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .subtitle {
@@ -19,6 +41,7 @@
   text-align: center;
   max-width: 322px;
   margin-bottom: 80px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
 .featuresContainer {
@@ -26,6 +49,7 @@
   justify-content: space-between;
   width: 100%;
   max-width: 940px;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .featureCard {
@@ -34,6 +58,12 @@
   padding: 29px 42px 45px;
   width: calc(50% - 10px);
   color: #fff;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: scale(1.05);
+  background-color: #222;
 }
 
 .featureHeader {
@@ -46,16 +76,20 @@
 .featureTitle {
   font-size: 32px;
   font-weight: 700;
+  animation: slideIn 1s ease-in-out;
 }
 
 .featureSubtitle {
   font-size: 32px;
   font-weight: 700;
   line-height: 26px;
+  animation: slideIn 1.5s ease-in-out;
 }
 
 .featureDescription {
   font-size: 16px;
+  font-weight: 300;
+  animation: fadeIn 2s ease-in-out;
 }
 
 @media (max-width: 991px) {

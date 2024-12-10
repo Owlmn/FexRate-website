@@ -1,2 +1,2 @@
-import CollaborationPage from "./components/CollaborationPage";
+import CollaborationPage from "@/app/partnership/partnership_components/CollaborationPage";
 export default CollaborationPage;
