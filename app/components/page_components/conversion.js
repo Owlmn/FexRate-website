@@ -1,45 +1,329 @@
 "use client";
 
 import "./conversion.css";
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import USD from "/app/public/icons/usd.svg";
-import RUB from "/app/public/icons/rub.svg";
+import BGD from "/app/public/img/background.svg";
 
 export default function Conversion({ children }) {
   const [activeButton, setActiveButton] = useState("Валюта");
-  const [dollars, setDollars] = useState("");
-  const [rubles, setRubles] = useState("");
-  const [exchangeRate, setExchangeRate] = useState("");
+  const [selectedFromCurrency, setSelectedFromCurrency] = useState("USD");
+  const [selectedToCurrency, setSelectedToCurrency] = useState("RUB");
+  const [fromAmount, setFromAmount] = useState("1");
+  const [toAmount, setToAmount] = useState("");
+  const [fiatRates, setFiatRates] = useState({});
+  const [cryptoRates, setCryptoRates] = useState({});
+  const [fiatCurrencies, setFiatCurrencies] = useState({});
+  const [cryptoCurrencies, setCryptoCurrencies] = useState({});
+  const [isDropdownOpenFrom, setIsDropdownOpenFrom] = useState(false);
+  const [isDropdownOpenTo, setIsDropdownOpenTo] = useState(false);
+  const inputRef = useRef(null);
+  const dropdownRefFrom = useRef(null);
+  const dropdownRefTo = useRef(null);
 
   useEffect(() => {
-    (async () => {
+    const fetchFiatRates = async () => {
       let date = new Date();
-      let [, year, month, day] = date
-        .toJSON()
-        .match("([0-9]+)-([0-9]+)-([0-9]+)");
-      console.log([day, month, year]);
-      const response = await fetch(
-        `https://www.cbr-xml-daily.ru/archive/${year}/${month}/${day}/daily_json.js`
-      );
-      const json = await response.json();
-      setExchangeRate(json.Valute.USD.Value);
-    })();
-  }, []);
+      let day = String(date.getDate()).padStart(2, "0");
+      let rates = null;
+      while (!rates) {
+        try {
+          const response = await fetch(
+            `https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${
+              date.getMonth() + 1
+            }/${day}/daily_json.js`
+          );
+          if (!response.ok) {
+            throw new Error("Not found");
+          }
+          const json = await response.json();
+          if (json.Valute) {
+            rates = {
+              RUB: 1,
+              USD: json.Valute.USD.Value / json.Valute.USD.Nominal,
+            };
+            Object.entries(json.Valute).forEach(
+              ([code, { Value, Nominal }]) => {
+                if (code !== "RUB") {
+                  rates[code] = Value / Nominal;
+                }
+              }
+            );
 
-  const handleConvert = () => {
-    const dollarsValue = parseFloat(dollars.replace(",", "."));
-    if (!isNaN(dollarsValue)) {
-      setRubles((dollarsValue * exchangeRate).toFixed(4));
-    } else {
-      setRubles("");
+            setFiatRates(rates);
+            setFiatCurrencies({
+              RUB: { name: "RUB", ruName: "Российский рубль", value: 1 },
+              ...Object.fromEntries(
+                Object.entries(json.Valute).map(([code, { Name }]) => [
+                  code,
+                  { name: code, ruName: Name },
+                ])
+              ),
+            });
+          }
+        } catch (error) {
+          date.setDate(date.getDate() - 1);
+        }
+      }
+    };
+
+    const fetchCryptoRates = async () => {
+      try {
+        const response = await fetch(
+          "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH,USDT,BNB,ADA,DOGE,XRP,LTC,LINK,DOT,XLM,UNI,SOL,AVAX,LUNA,FIL,ALGO,ATOM,VET,THETA,TRX,EOS,XMR,DASH,ZEC,NEO,QTUM,ONT,BAT,MANA,GRT,AXS,CHZ,CUSD,YFI,AAVE,MKR,SNX,CRV,SUSHI,INCH&tsyms=USD"
+        );
+        const json = await response.json();
+        const rates = {};
+        Object.entries(json).forEach(([code, { USD }]) => {
+          rates[code.toUpperCase()] = USD;
+        });
+        setCryptoRates(rates);
+        setCryptoCurrencies({
+          BTC: { name: "BTC", ruName: "Bitcoin" },
+          ETH: { name: "ETH", ruName: "Ethereum" },
+          USDT: { name: "USDT", ruName: "Tether" },
+          BNB: { name: "BNB", ruName: "Binance Coin" },
+          ADA: { name: "ADA", ruName: "Cardano" },
+          DOGE: { name: "DOGE", ruName: "Dogecoin" },
+          XRP: { name: "XRP", ruName: "XRP" },
+          LTC: { name: "LTC", ruName: "Litecoin" },
+          LINK: { name: "LINK", ruName: "Chainlink" },
+          DOT: { name: "DOT", ruName: "Polkadot" },
+          XLM: { name: "XLM", ruName: "Stellar" },
+          UNI: { name: "UNI", ruName: "Uniswap" },
+          SOL: { name: "SOL", ruName: "Solana" },
+          AVAX: { name: "AVAX", ruName: "Avalanche" },
+          LUNA: { name: "LUNA", ruName: "Terra" },
+          FIL: { name: "FIL", ruName: "Filecoin" },
+          ALGO: { name: "ALGO", ruName: "Algorand" },
+          ATOM: { name: "ATOM", ruName: "Cosmos" },
+          VET: { name: "VET", ruName: "VeChain" },
+          THETA: { name: "THETA", ruName: "Theta" },
+          TRX: { name: "TRX", ruName: "Tron" },
+          EOS: { name: "EOS", ruName: "EOS" },
+          XMR: { name: "XMR", ruName: "Monero" },
+          DASH: { name: "DASH", ruName: "Dash" },
+          ZEC: { name: "ZEC", ruName: "Zcash" },
+          NEO: { name: "NEO", ruName: "Neo" },
+          QTUM: { name: "QTUM", ruName: "Qtum" },
+          ONT: { name: "ONT", ruName: "Ontology" },
+          BAT: { name: "BAT", ruName: "Basic Attention Token" },
+          MANA: { name: "MANA", ruName: "Decentraland" },
+          GRT: { name: "GRT", ruName: "The Graph" },
+          AXS: { name: "AXS", ruName: "Axie Infinity" },
+          CHZ: { name: "CHZ", ruName: "Chiliz" },
+          CUSD: { name: "CUSD", ruName: "Compound USD Coin" },
+          YFI: { name: "YFI", ruName: "Yearn.finance" },
+          AAVE: { name: "AAVE", ruName: "Aave" },
+          MKR: { name: "MKR", ruName: "Maker" },
+          SNX: { name: "SNX", ruName: "Synthetix" },
+          CRV: { name: "CRV", ruName: "Curve DAO Token" },
+          SUSHI: { name: "SUSHI", ruName: "SushiSwap" },
+          INCH: { name: "1INCH", ruName: "1inch" },
+        });
+      } catch (error) {
+        console.error("Error fetching crypto rates:", error);
+      }
+    };
+
+    if (activeButton === "Валюта") {
+      fetchFiatRates();
+    } else if (activeButton === "Криптовалюта") {
+      fetchCryptoRates();
+    }
+  }, [activeButton]);
+
+  useEffect(() => {
+    if (
+      activeButton === "Валюта" &&
+      Object.keys(fiatRates).length > 0 &&
+      fromAmount
+    ) {
+      setToAmount(
+        calculateConversion(
+          fromAmount,
+          selectedFromCurrency,
+          selectedToCurrency,
+          fiatRates
+        )
+      );
+    } else if (
+      activeButton === "Криптовалюта" &&
+      Object.keys(cryptoRates).length > 0 &&
+      fromAmount
+    ) {
+      setToAmount(
+        calculateConversion(
+          fromAmount,
+          selectedFromCurrency,
+          selectedToCurrency,
+          cryptoRates
+        )
+      );
+    }
+  }, [
+    activeButton,
+    fiatRates,
+    cryptoRates,
+    selectedFromCurrency,
+    selectedToCurrency,
+    fromAmount,
+  ]);
+
+  const formatNumber = (value) => {
+    if (!value) return "";
+    const [integerPart, fractionalPart] = value.split(".");
+    const formattedIntegerPart = integerPart.replace(
+      /\B(?=(\d{3})+(?!\d))/g,
+      " "
+    );
+    if (fractionalPart) {
+      // Remove trailing zeros
+      const trimmedFractionalPart = fractionalPart.replace(/0+$/, "");
+      return trimmedFractionalPart
+        ? `${formattedIntegerPart}.${trimmedFractionalPart}`
+        : formattedIntegerPart;
+    }
+    return formattedIntegerPart;
+  };
+
+  const calculateConversion = (amount, fromCurrency, toCurrency, rates) => {
+    const numericValue = amount.toString().replace(/\s/g, "").replace(",", ".");
+    const fromValue = parseFloat(numericValue);
+    if (!isNaN(fromValue)) {
+      const fromRate = rates[fromCurrency];
+      const toRate = rates[toCurrency];
+      if (fromRate && toRate) {
+        const convertedAmount = ((fromValue * fromRate) / toRate).toFixed(5); // Исправление
+        return formatNumber(convertedAmount);
+      }
+    }
+    return "";
+  };
+
+  const handleInputChange = (e) => {
+    let inputValue = e.target.value.replace(/[^\d.,]/g, "");
+
+    if (
+      inputValue.startsWith("0") &&
+      inputValue.length > 1 &&
+      !inputValue.startsWith("0.")
+    ) {
+      inputValue = inputValue.replace(/^0+/, "0").replace(/^0+(\d+)/, "$1");
+    }
+
+    if (inputValue && !/^\d/.test(inputValue)) {
+      return;
+    }
+
+    const numericValue = inputValue.replace(/\s/g, "").replace(",", ".");
+
+    setFromAmount(formatNumber(numericValue));
+    if (activeButton === "Валюта") {
+      setToAmount(
+        calculateConversion(
+          numericValue,
+          selectedFromCurrency,
+          selectedToCurrency,
+          fiatRates
+        )
+      );
+    } else if (activeButton === "Криптовалюта") {
+      setToAmount(
+        calculateConversion(
+          numericValue,
+          selectedFromCurrency,
+          selectedToCurrency,
+          cryptoRates
+        )
+      );
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    const key = e.keyCode || e.which;
+    const allowedKeys = [
+      "Backspace",
+      "Tab",
+      "ArrowLeft",
+      "ArrowRight",
+      "Delete",
+      ",",
+      ".",
+    ];
+    if (!allowedKeys.includes(e.key) && !/^\d$/.test(e.key)) {
+      e.preventDefault();
+    }
+    if (key === 13) {
+      inputRef.current?.blur();
     }
   };
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
-    setRubles(null);
+    setToAmount("");
+    setFromAmount("1");
+    if (buttonName === "Валюта") {
+      setSelectedFromCurrency("USD");
+      setSelectedToCurrency("RUB");
+    } else if (buttonName === "Криптовалюта") {
+      setSelectedFromCurrency("BTC");
+      setSelectedToCurrency("USDT");
+    }
   };
+
+  const handleSwitch = () => {
+    const tempCurrency = selectedFromCurrency;
+    setSelectedFromCurrency(selectedToCurrency);
+    setSelectedToCurrency(tempCurrency);
+
+    const tempAmount = fromAmount;
+    setFromAmount(toAmount);
+    setToAmount(tempAmount);
+  };
+
+  const toggleDropdownFrom = () => {
+    setIsDropdownOpenFrom(!isDropdownOpenFrom);
+    setIsDropdownOpenTo(false); // Close the other dropdown if open
+  };
+
+  const toggleDropdownTo = () => {
+    setIsDropdownOpenTo(!isDropdownOpenTo);
+    setIsDropdownOpenFrom(false); // Close the other dropdown if open
+  };
+
+  const handleCurrencySelectFrom = (currency) => {
+    setSelectedFromCurrency(currency);
+    setIsDropdownOpenFrom(false);
+  };
+
+  const handleCurrencySelectTo = (currency) => {
+    setSelectedToCurrency(currency);
+    setIsDropdownOpenTo(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRefFrom.current &&
+      !dropdownRefFrom.current.contains(event.target)
+    ) {
+      setIsDropdownOpenFrom(false);
+    }
+    if (
+      dropdownRefTo.current &&
+      !dropdownRefTo.current.contains(event.target)
+    ) {
+      setIsDropdownOpenTo(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -64,32 +348,69 @@ export default function Conversion({ children }) {
             >
               <div className="conversion_text">Криптовалюта</div>
             </button>
-            <button
+            {/* <button
               className={`currency_button ${
                 activeButton === "Акции" ? "active" : ""
               }`}
               onClick={() => handleButtonClick("Акции")}
             >
               <div className="conversion_text">Акции</div>
-            </button>
+            </button> */}
           </div>
 
-          <div className="rectangle"></div>
+          <Image src={BGD} alt="" className="background"></Image>
 
           <div className="input_currency">
             <text className="input_text">Вы вводите</text>
             <input
               type="text"
+              ref={inputRef}
               placeholder="1"
-              value={dollars}
-              onChange={(e) => setDollars(e.target.value)}
+              value={fromAmount}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyPress}
             />
-            <div className="currency_type">
-              <Image src={USD} alt="" className="icon" />
-              <div className="currency_type_text">USD</div>
+            <div
+              className="currency_selector"
+              onClick={toggleDropdownFrom}
+              ref={dropdownRefFrom}
+            >
+              <div className="selected_currency">
+                {activeButton === "Валюта"
+                  ? fiatCurrencies[selectedFromCurrency]?.ruName
+                  : cryptoCurrencies[selectedFromCurrency]?.ruName}{" "}
+                ({selectedFromCurrency})
+              </div>
+              {isDropdownOpenFrom && (
+                <div className="dropdown_menu">
+                  {activeButton === "Валюта"
+                    ? Object.entries(fiatCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectFrom(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )
+                    : Object.entries(cryptoCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectFrom(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )}
+                </div>
+              )}
             </div>
           </div>
-          <div className="switch">
+          <button className="switch" onClick={handleSwitch}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -102,27 +423,73 @@ export default function Conversion({ children }) {
                 fill="#212121"
               />
             </svg>
-          </div>
+          </button>
           <div className="output_currency">
             <text className="input_text">Вы получаете</text>
             <input
               type="text"
-              value={rubles}
+              value={toAmount}
               readOnly
-              placeholder={exchangeRate}
+              placeholder={
+                (activeButton === "Валюта" &&
+                  fiatRates[selectedToCurrency] &&
+                  fiatRates[selectedFromCurrency] &&
+                  (
+                    (fromAmount * fiatRates[selectedToCurrency]) /
+                    fiatRates[selectedFromCurrency]
+                  ).toFixed(5)) ||
+                (activeButton === "Криптовалюта" &&
+                  cryptoRates[selectedToCurrency] &&
+                  cryptoRates[selectedFromCurrency] &&
+                  (
+                    (fromAmount * cryptoRates[selectedToCurrency]) /
+                    cryptoRates[selectedFromCurrency]
+                  ).toFixed(5)) ||
+                ""
+              }
             />
-
-            <div className="currency_type">
-              <Image src={RUB} alt="" className="icon" />
-              <div className="currency_type_text">RUB</div>
+            <div
+              className="currency_selector"
+              onClick={toggleDropdownTo}
+              ref={dropdownRefTo}
+            >
+              <div className="selected_currency">
+                {activeButton === "Валюта"
+                  ? fiatCurrencies[selectedToCurrency]?.ruName
+                  : cryptoCurrencies[selectedToCurrency]?.ruName}{" "}
+                ({selectedToCurrency})
+              </div>
+              {isDropdownOpenTo && (
+                <div className="dropdown_menu">
+                  {activeButton === "Валюта"
+                    ? Object.entries(fiatCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectTo(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )
+                    : Object.entries(cryptoCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectTo(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )}
+                </div>
+              )}
             </div>
           </div>
-          <button className="convert_button" onClick={handleConvert}>
-            <div className="conversion_text">Конвертировать</div>
-          </button>
         </div>
       </div>
-
       {children}
     </div>
   );

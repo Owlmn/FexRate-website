@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Две карточки в ряд */
   grid-gap: 30px;
-  max-width: 1000px; /* Максимальная ширина сетки */
+  max-width: 940px; /* Максимальная ширина сетки */
   margin: 0 auto;
 }
 
