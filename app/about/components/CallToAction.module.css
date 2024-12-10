@@ -5,9 +5,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1015px;
+  max-width: 940px;
   margin: -40px auto 60px auto;
   transition: transform 0.3s ease;
+  box-sizing: border-box; /* Убедитесь, что отступы включены в общий размер */
+  overflow: hidden; /* Скрываем переполнение */
 }
 
 .callToAction:hover {
@@ -63,9 +65,75 @@
   .callToAction {
     flex-direction: column;
     gap: 30px;
+    padding: 40px 20px; /* Уменьшаем отступы */
+    margin: 0 auto 40px auto; /* Уменьшаем отрицательный отступ сверху */
   }
 
   .ctaIcons {
     flex-direction: row;
+    gap: 10px; /* Уменьшаем зазор между иконками */
+  }
+
+  .ctaTitle {
+    font-size: 28px; /* Уменьшаем размер шрифта */
+    margin-bottom: 15px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaDescription {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    margin-bottom: 20px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaButton {
+    padding: 8px 16px; /* Уменьшаем отступы кнопки */
+    font-size: 14px; /* Уменьшаем размер шрифта кнопки */
+  }
+}
+
+@media (max-width: 768px) {
+  .callToAction {
+    padding: 30px 15px; /* Еще больше уменьшаем отступы */
+    margin: 0 auto 30px auto; /* Еще больше уменьшаем отрицательный отступ сверху */
+    max-height: 400px; /* Ограничиваем максимальную высоту */
+    max-width: 95%;
+  }
+
+  .ctaTitle {
+    font-size: 24px; /* Еще больше уменьшаем размер шрифта */
+    margin-bottom: 10px; /* Еще больше уменьшаем отступ снизу */
+  }
+
+  .ctaDescription {
+    font-size: 12px; /* Еще больше уменьшаем размер шрифта */
+    margin-bottom: 15px; /* Еще больше уменьшаем отступ снизу */
+  }
+
+  .ctaButton {
+    padding: 6px 12px; /* Еще больше уменьшаем отступы кнопки */
+    font-size: 12px; /* Еще больше уменьшаем размер шрифта кнопки */
+  }
+}
+
+@media (max-width: 576px) {
+  .callToAction {
+    padding: 20px 10px; /* Уменьшаем отступы для очень маленьких экранов */
+    margin: 0 auto 20px auto; /* Уменьшаем отрицательный отступ сверху */
+    max-height: 350px; /* Ограничиваем максимальную высоту */
+    max-width: 90%;
+  }
+
+  .ctaTitle {
+    font-size: 20px; /* Уменьшаем размер шрифта */
+    margin-bottom: 10px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaDescription {
+    font-size: 10px; /* Уменьшаем размер шрифта */
+    margin-bottom: 10px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaButton {
+    padding: 4px 8px; /* Уменьшаем отступы кнопки */
+    font-size: 10px; /* Уменьшаем размер шрифта кнопки */
   }
 }
