@@ -4,7 +4,7 @@
   flex-direction: column;
   overflow: hidden;
   align-items: center;
-  padding: 100px 0 9px;
+  padding: 135px 0 9px;
 }
 
 .mainContent {
@@ -69,10 +69,10 @@
 .sectionTitle {
   background-color: #1e1e1e;
   color: #fff;
-  padding: 20px 33px;
+  padding: 25px 33px;
   border-radius: 10px;
   font: 400 16px/1 Roboto, sans-serif;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 
 .userInfo {
@@ -83,18 +83,19 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 9px 20px;
+  margin-bottom: 32px;
 }
 
 .fieldLabel {
   color: #fff;
   font: 300 16px/1 Roboto, sans-serif;
-  margin-top: 22px;
+  margin-top: 28px;
 }
 
 .fieldValue {
   background-color: #131313;
   color: #fff;
-  padding: 11px 20px;
+  padding: 16px 20px;
   border-radius: 10px;
   font: 400 16px/1 Roboto, sans-serif;
 }
@@ -339,7 +340,7 @@
 .favoriteItem {
   background-color: #131313;
   border-radius: 10px;
-  padding: 16px 13px;
+  padding: 21px 13px;
   display: flex;
   justify-content: space-between;
   align-items: center;
