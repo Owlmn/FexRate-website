@@ -211,6 +211,7 @@
 .actionButtons {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
 .actionButton {
@@ -316,6 +317,16 @@
   .transactionId {
     width: 100%;
     margin-bottom: 10px;
+  }
+
+  .actionButtons {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center;
+  }
+
+  .actionButton {
+    width: 100%; /* Make buttons full-width */
+    justify-content: center;
   }
 }
 
