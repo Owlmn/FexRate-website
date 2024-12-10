@@ -1,0 +1,377 @@
+.personalCabinet {
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  align-items: center;
+  padding: 135px 0 9px;
+}
+
+.mainContent {
+  display: flex;
+  width: 940px;
+  max-width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  width: 940px;
+  max-width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title {
+  color: #fff;
+  font: 500 24px Roboto, sans-serif;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.avatarContainer {
+  background-color: #b3d3ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.username {
+  color: #fff;
+  font: 400 16px/1 Roboto, sans-serif;
+}
+
+.leftColumn {
+  flex: 3;
+}
+
+.rightColumn {
+  flex: 1;
+}
+
+.sectionTitle {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 25px 33px;
+  border-radius: 10px;
+  font: 400 16px/1 Roboto, sans-serif;
+  margin-bottom: 32px;
+}
+
+.userInfo {
+  margin-bottom: 33px;
+}
+
+.userInfoGrid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 9px 20px;
+  margin-bottom: 32px;
+}
+
+.fieldLabel {
+  color: #fff;
+  font: 300 16px/1 Roboto, sans-serif;
+  margin-top: 28px;
+}
+
+.fieldValue {
+  background-color: #131313;
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font: 400 16px/1 Roboto, sans-serif;
+}
+
+.inputField {
+  background-color: #131313;
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font: 400 16px/1 Roboto, sans-serif;
+  border: none; /* Убираем обводку по умолчанию */
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.3s ease; /* Плавный переход для обводки */
+}
+
+.inputField:focus {
+  border: none; /* Убираем обводку при фокусе */
+  outline: none; /* Убираем стандартную обводку */
+}
+
+.passwordField {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.showPasswordIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.popularCurrencies {
+  margin-bottom: 33px;
+}
+
+.currenciesList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 21px;
+}
+
+.currencyItem {
+  background-color: #131313;
+  border-radius: 10px;
+  padding: 16px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.currencyItem:hover {
+  transform: scale(1.05);
+}
+
+.currencyInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.currencyIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.currencyCode {
+  color: #fff;
+  font: 500 16px/1 Roboto, sans-serif;
+}
+
+.currencyValue {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #5162ff;
+  font: 400 16px/1 Roboto, sans-serif;
+}
+
+.trendIcon {
+  width: 15px;
+  height: 16px;
+}
+
+.saveButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.saveButton {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font: 400 16px Roboto, sans-serif;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.saveButton:hover {
+  background-color: #3e3e3e;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.actionButton {
+  background-color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font: 400 16px Roboto, sans-serif;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actionButton:hover {
+  background-color: #3e3e3e;
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.transactionHistory {
+  background-color: #131313;
+  border-radius: 30px 20px 20px 20px;
+  padding: 40px 25px;
+}
+
+.transactionList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transactionItem {
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 13px 25px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #a7b0bd;
+  font: 500 16px/1 Roboto, sans-serif;
+}
+
+.transactionId {
+  min-width: 20px;
+}
+
+.currencyPair {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.arrowIcon {
+  width: 18px;
+  height: 9px;
+}
+
+@media (max-width: 991px) {
+  .mainContent {
+    flex-direction: column;
+  }
+  .leftColumn,
+  .rightColumn {
+    width: 100%;
+  }
+
+  .sectionTitle {
+    padding: 12px 20px;
+  }
+
+  .userInfoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .currenciesList {
+    grid-template-columns: 1fr;
+  }
+
+  .transactionHistory {
+    margin-top: 40px;
+    border-radius: 30px 20px 20px 20px;
+    padding: 40px 25px;
+  }
+
+  .transactionItem {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .transactionId {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .actionButtons {
+    flex-direction: column; /* Stack buttons vertically on smaller screens */
+    align-items: center;
+  }
+
+  .actionButton {
+    width: 100%; /* Make buttons full-width */
+    justify-content: center;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.favoritesList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.favoriteItem {
+  background-color: #131313;
+  border-radius: 10px;
+  padding: 21px 13px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.favoriteItem:hover {
+  transform: scale(1.05);
+}
+
+.successMessage {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font: 400 16px Roboto, sans-serif;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

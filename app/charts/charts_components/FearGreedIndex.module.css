@@ -1,0 +1,198 @@
+.fearGreedIndex {
+  background-color: #131313;
+  border-radius: 30px;
+  margin: 50px auto 100px auto; /* Увеличен отступ от футера */
+  padding: 50px;
+  max-width: 940px; /* Максимальная ширина */
+  width: 100%;
+  box-sizing: border-box;
+  height: 480px; /* Увеличена высота черного блока */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: Roboto, sans-serif;
+  color: #fff;
+  font-weight: 500;
+  width: 70%; /* Ширина блока с описанием */
+  text-align: left; /* Центрирование текста по левой части */
+}
+
+.iconPlaceholder {
+  width: 38px;
+  height: 31px;
+  border-radius: 20px;
+  margin-top: 4.5rem;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.text {
+  font-size: 16px;
+  margin-top: 29px;
+  font-weight: 300;
+}
+
+.chart {
+  flex-grow: 1;
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 30px;
+  position: relative;
+  width: 100%; /* Добавлено для центрирования */
+}
+
+.chartValue {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.chartClassification {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #0073e6;
+}
+
+.chartImagePlaceholder {
+  width: 100%;
+  height: 200px; /* Увеличенная высота белого блока для графика */
+  background-color: #fff;
+  border-radius: 30px;
+  display: flex; /* Добавлено для центрирования */
+  justify-content: center; /* Добавлено для центрирования */
+  align-items: center; /* Добавлено для центрирования */
+}
+
+/* Медиазапросы для адаптивности */
+@media (max-width: 991px) {
+  .fearGreedIndex {
+    padding: 30px;
+    height: auto; /* Убираем фиксированную высоту для мобильных устройств */
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    width: 100%;
+    align-items: center;
+    text-align: center; /* Центрирование текста */
+    margin-bottom: 20px;
+  }
+
+  .chart {
+    width: 100%;
+    order: 1; /* Перемещаем график вниз */
+  }
+
+  .iconPlaceholder {
+    display: none; /* Убираем изображение */
+  }
+}
+
+@media (max-width: 767px) {
+  .content {
+    align-items: center;
+  }
+
+  .description {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .fearGreedIndex {
+    padding: 20px;
+  }
+
+  .iconPlaceholder {
+    margin-top: 2rem;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .text {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+
+  .chartValue {
+    font-size: 36px;
+  }
+
+  .chartClassification {
+    font-size: 20px;
+  }
+
+  .chartImagePlaceholder {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .description {
+    width: 100%;
+    align-items: center;
+    text-align: center; /* Центрирование текста */
+    margin-bottom: 20px;
+  }
+
+  .fearGreedIndex {
+    padding: 15px;
+  }
+
+  .iconPlaceholder {
+    margin-top: 1rem;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .text {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .chartValue {
+    font-size: 30px;
+  }
+
+  .chartClassification {
+    font-size: 18px;
+  }
+
+  .chartImagePlaceholder {
+    height: 120px;
+  }
+}

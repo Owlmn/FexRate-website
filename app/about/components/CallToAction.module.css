@@ -1,0 +1,139 @@
+.callToAction {
+  background-color: #131313;
+  border-radius: 30px;
+  padding: 60px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 940px;
+  margin: -40px auto 60px auto;
+  transition: transform 0.3s ease;
+  box-sizing: border-box; /* Убедитесь, что отступы включены в общий размер */
+  overflow: hidden; /* Скрываем переполнение */
+}
+
+.callToAction:hover {
+  transform: scale(1.05);
+}
+
+.ctaIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ctaIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.ctaContent {
+  text-align: center;
+}
+
+.ctaTitle {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.ctaDescription {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 300;
+}
+
+.ctaButton {
+  background-color: #fff;
+  color: #1e1e1e;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.ctaButton:hover {
+  background-color: #5162ff;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+  .callToAction {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px; /* Уменьшаем отступы */
+    margin: 0 auto 40px auto; /* Уменьшаем отрицательный отступ сверху */
+  }
+
+  .ctaIcons {
+    flex-direction: row;
+    gap: 10px; /* Уменьшаем зазор между иконками */
+  }
+
+  .ctaTitle {
+    font-size: 28px; /* Уменьшаем размер шрифта */
+    margin-bottom: 15px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaDescription {
+    font-size: 14px; /* Уменьшаем размер шрифта */
+    margin-bottom: 20px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaButton {
+    padding: 8px 16px; /* Уменьшаем отступы кнопки */
+    font-size: 14px; /* Уменьшаем размер шрифта кнопки */
+  }
+}
+
+@media (max-width: 768px) {
+  .callToAction {
+    padding: 30px 15px; /* Еще больше уменьшаем отступы */
+    margin: 0 auto 30px auto; /* Еще больше уменьшаем отрицательный отступ сверху */
+    max-height: 400px; /* Ограничиваем максимальную высоту */
+    max-width: 95%;
+  }
+
+  .ctaTitle {
+    font-size: 24px; /* Еще больше уменьшаем размер шрифта */
+    margin-bottom: 10px; /* Еще больше уменьшаем отступ снизу */
+  }
+
+  .ctaDescription {
+    font-size: 12px; /* Еще больше уменьшаем размер шрифта */
+    margin-bottom: 15px; /* Еще больше уменьшаем отступ снизу */
+  }
+
+  .ctaButton {
+    padding: 6px 12px; /* Еще больше уменьшаем отступы кнопки */
+    font-size: 12px; /* Еще больше уменьшаем размер шрифта кнопки */
+  }
+}
+
+@media (max-width: 576px) {
+  .callToAction {
+    padding: 20px 10px; /* Уменьшаем отступы для очень маленьких экранов */
+    margin: 0 auto 20px auto; /* Уменьшаем отрицательный отступ сверху */
+    max-height: 350px; /* Ограничиваем максимальную высоту */
+    max-width: 90%;
+  }
+
+  .ctaTitle {
+    font-size: 20px; /* Уменьшаем размер шрифта */
+    margin-bottom: 10px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaDescription {
+    font-size: 10px; /* Уменьшаем размер шрифта */
+    margin-bottom: 10px; /* Уменьшаем отступ снизу */
+  }
+
+  .ctaButton {
+    padding: 4px 8px; /* Уменьшаем отступы кнопки */
+    font-size: 10px; /* Уменьшаем размер шрифта кнопки */
+  }
+}
