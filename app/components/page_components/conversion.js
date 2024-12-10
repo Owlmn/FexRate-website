@@ -15,7 +15,11 @@ export default function Conversion({ children }) {
   const [cryptoRates, setCryptoRates] = useState({});
   const [fiatCurrencies, setFiatCurrencies] = useState({});
   const [cryptoCurrencies, setCryptoCurrencies] = useState({});
+  const [isDropdownOpenFrom, setIsDropdownOpenFrom] = useState(false);
+  const [isDropdownOpenTo, setIsDropdownOpenTo] = useState(false);
   const inputRef = useRef(null);
+  const dropdownRefFrom = useRef(null);
+  const dropdownRefTo = useRef(null);
 
   useEffect(() => {
     const fetchFiatRates = async () => {
@@ -278,6 +282,48 @@ export default function Conversion({ children }) {
     setToAmount(tempAmount);
   };
 
+  const toggleDropdownFrom = () => {
+    setIsDropdownOpenFrom(!isDropdownOpenFrom);
+    setIsDropdownOpenTo(false); // Close the other dropdown if open
+  };
+
+  const toggleDropdownTo = () => {
+    setIsDropdownOpenTo(!isDropdownOpenTo);
+    setIsDropdownOpenFrom(false); // Close the other dropdown if open
+  };
+
+  const handleCurrencySelectFrom = (currency) => {
+    setSelectedFromCurrency(currency);
+    setIsDropdownOpenFrom(false);
+  };
+
+  const handleCurrencySelectTo = (currency) => {
+    setSelectedToCurrency(currency);
+    setIsDropdownOpenTo(false);
+  };
+
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRefFrom.current &&
+      !dropdownRefFrom.current.contains(event.target)
+    ) {
+      setIsDropdownOpenFrom(false);
+    }
+    if (
+      dropdownRefTo.current &&
+      !dropdownRefTo.current.contains(event.target)
+    ) {
+      setIsDropdownOpenTo(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div>
       <div className="convert">
@@ -301,14 +347,14 @@ export default function Conversion({ children }) {
             >
               <div className="conversion_text">Криптовалюта</div>
             </button>
-            <button
+            {/* <button
               className={`currency_button ${
                 activeButton === "Акции" ? "active" : ""
               }`}
               onClick={() => handleButtonClick("Акции")}
             >
               <div className="conversion_text">Акции</div>
-            </button>
+            </button> */}
           </div>
 
           <Image src={BGD} alt="" className="background"></Image>
@@ -323,31 +369,45 @@ export default function Conversion({ children }) {
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}
             />
-            <select
-              value={selectedFromCurrency}
-              onChange={(e) => setSelectedFromCurrency(e.target.value)}
-              className="currency_type"
+            <div
+              className="currency_selector"
+              onClick={toggleDropdownFrom}
+              ref={dropdownRefFrom}
             >
-              {activeButton === "Валюта"
-                ? Object.entries(fiatCurrencies).map(
-                    ([code, { name, ruName }]) => (
-                      <option key={code} value={code}>
-                        <span className="currency-option">
-                          {ruName} ({name})
-                        </span>
-                      </option>
-                    )
-                  )
-                : Object.entries(cryptoCurrencies).map(
-                    ([code, { name, ruName }]) => (
-                      <option key={code} value={code}>
-                        <span className="currency-option">
-                          {ruName} ({name})
-                        </span>
-                      </option>
-                    )
-                  )}
-            </select>
+              <div className="selected_currency">
+                {activeButton === "Валюта"
+                  ? fiatCurrencies[selectedFromCurrency]?.ruName
+                  : cryptoCurrencies[selectedFromCurrency]?.ruName}{" "}
+                ({selectedFromCurrency})
+              </div>
+              {isDropdownOpenFrom && (
+                <div className="dropdown_menu">
+                  {activeButton === "Валюта"
+                    ? Object.entries(fiatCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectFrom(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )
+                    : Object.entries(cryptoCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectFrom(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )}
+                </div>
+              )}
+            </div>
           </div>
           <button className="switch" onClick={handleSwitch}>
             <svg
@@ -387,31 +447,45 @@ export default function Conversion({ children }) {
                 ""
               }
             />
-            <select
-              value={selectedToCurrency}
-              onChange={(e) => setSelectedToCurrency(e.target.value)}
-              className="currency_type"
+            <div
+              className="currency_selector"
+              onClick={toggleDropdownTo}
+              ref={dropdownRefTo}
             >
-              {activeButton === "Валюта"
-                ? Object.entries(fiatCurrencies).map(
-                    ([code, { name, ruName }]) => (
-                      <option key={code} value={code}>
-                        <span className="currency-option">
-                          {ruName} ({name})
-                        </span>
-                      </option>
-                    )
-                  )
-                : Object.entries(cryptoCurrencies).map(
-                    ([code, { name, ruName }]) => (
-                      <option key={code} value={code}>
-                        <span className="currency-option">
-                          {ruName} ({name})
-                        </span>
-                      </option>
-                    )
-                  )}
-            </select>
+              <div className="selected_currency">
+                {activeButton === "Валюта"
+                  ? fiatCurrencies[selectedToCurrency]?.ruName
+                  : cryptoCurrencies[selectedToCurrency]?.ruName}{" "}
+                ({selectedToCurrency})
+              </div>
+              {isDropdownOpenTo && (
+                <div className="dropdown_menu">
+                  {activeButton === "Валюта"
+                    ? Object.entries(fiatCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectTo(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )
+                    : Object.entries(cryptoCurrencies).map(
+                        ([code, { name, ruName }]) => (
+                          <div
+                            key={code}
+                            className="dropdown_item"
+                            onClick={() => handleCurrencySelectTo(code)}
+                          >
+                            {ruName} ({name})
+                          </div>
+                        )
+                      )}
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
