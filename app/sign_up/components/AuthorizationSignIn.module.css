@@ -7,20 +7,22 @@
   font-family: Inter, sans-serif;
   color: #fff;
   padding: 25px 80px 179px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
   .container {
-    padding: 0 20px 100px;
+    padding: 20px;
   }
 }
 
 .content {
   display: flex;
-  width: 940px;
-  max-width: 100vh;
+  width: 100%;
+  max-width: 940px;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
 }
 
 .header {
@@ -31,11 +33,12 @@
   font-family: Roboto, sans-serif;
   white-space: nowrap;
   flex-wrap: wrap;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
   .header {
-    max-width: 100%;
+    gap: 20px;
     white-space: initial;
   }
 }
@@ -52,6 +55,7 @@
   font-size: 16px;
   font-weight: 400;
   flex: 1;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
@@ -72,11 +76,13 @@
   font-size: 32px;
   font-weight: 400;
   margin-top: 129px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
   .title {
     margin-top: 40px;
+    font-size: 28px;
   }
 }
 
@@ -84,6 +90,7 @@
   font-size: 16px;
   font-weight: 300;
   margin-top: 17px;
+  box-sizing: border-box;
 }
 
 .registerLink {
@@ -95,28 +102,30 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .inputField {
   border-radius: 20px;
   background-color: #fff;
   margin-top: 56px;
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   font-size: 16px;
   color: #8ea2bb;
   font-weight: 300;
   white-space: nowrap;
   padding: 26px 30px;
-  border: none; /* Убираем стандартную границу */
-  outline: none; /* Убираем обводку при фокусе */
+  border: none;
+  outline: none;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
   .inputField {
     margin-top: 40px;
     white-space: initial;
-    padding: 0 20px;
+    padding: 20px;
   }
 }
 
@@ -125,8 +134,8 @@
   background-color: #fff;
   display: flex;
   margin-top: 17px;
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   gap: 20px;
   font-size: 16px;
   color: #8ea2bb;
@@ -134,12 +143,13 @@
   white-space: nowrap;
   justify-content: space-between;
   padding: 23px 28px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
   .passwordContainer {
     white-space: initial;
-    padding: 0 20px;
+    padding: 20px;
   }
 }
 
@@ -150,7 +160,8 @@
   font-size: 16px;
   font-weight: 300;
   flex-grow: 1;
-  outline: none; /* Убираем обводку при фокусе */
+  outline: none;
+  box-sizing: border-box;
 }
 
 .passwordToggle {
@@ -170,47 +181,51 @@
 .checkboxContainer {
   display: flex;
   align-items: center;
-  margin-top: 20px; /* Увеличиваем отступ сверху */
+  margin-top: 20px;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .checkboxInput {
   margin-right: 10px;
-  width: 20px; /* Увеличиваем размер поля для ввода галочки */
-  height: 20px; /* Увеличиваем размер поля для ввода галочки */
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
 }
 
 .checkboxLabel {
   font-size: 14px;
   color: #8ea2bb;
+  box-sizing: border-box;
 }
 
 .submitButton {
-  align-self: center; /* Выравниваем кнопку по центру */
+  align-self: center;
   border-radius: 20px;
   background-color: #2433bd;
-  margin-top: 20px; /* Уменьшаем отступ сверху */
+  margin-top: 20px;
   min-height: 64px;
-  width: 400px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   gap: 10px;
   white-space: nowrap;
   font: 400 16px/1 Roboto, sans-serif;
   border: none;
   color: #fff;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
 }
 
 .submitButton:hover {
-  background-color: #3a49e9; /* Чуть более светлый цвет при наведении */
+  background-color: #3a49e9;
 }
 
 @media (max-width: 991px) {
   .submitButton {
     margin-top: 40px;
     white-space: initial;
-    padding: 0 20px;
+    padding: 20px;
   }
 }
 
@@ -220,6 +235,7 @@
   font-weight: 300;
   margin-top: 21px;
   text-decoration: none;
+  box-sizing: border-box;
 }
 
 .visuallyHidden {
@@ -236,6 +252,6 @@
 
 .inputField:focus,
 .passwordInput:focus {
-  outline: none; /* Убираем обводку при фокусе */
-  box-shadow: none; /* Убираем тень при фокусе, если она есть */
+  outline: none;
+  box-shadow: none;
 }

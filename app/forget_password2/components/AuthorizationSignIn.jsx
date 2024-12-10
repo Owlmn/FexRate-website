@@ -1,80 +1,62 @@
-import React, { useState } from 'react';
-import styles from './AuthorizationSignIn.module.css';
-import Link from "next/link";
-import GlobalStyles from './globals.css';
+"use client";
 
-const AuthorizationSignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+import React, { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import styles from "./AuthorizationSignIn.module.css";
+import GlobalStyles from "./globals.css";
+
+const ForgotPassword = () => {
+  const [email, setEmail] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+    // Перенаправление на страницу /personal_account при успешной отправке формы
+    router.push("/forget_password3");
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const handleBackClick = (e) => {
+    e.preventDefault();
+    // Перенаправление на страницу /sign_in при клике на "Назад"
+    router.push("/sign_in");
   };
 
   return (
     <main className={styles.container}>
       <div className={styles.content}>
         <header className={styles.header}>
-          <Link href="/"> <h1 className={styles.logo}>FexRate</h1></Link>
-          {/* <nav className={styles.navItem}>
-            <img src="/images/home-icon.svg" alt="" className={styles.navIcon} />
-            <span>Главная</span>
-          </nav> */}
+          <Link href="/">
+            <h1 className={styles.logo}>FexRate</h1>
+          </Link>
         </header>
-        <h2 className={styles.title}>Войти</h2>
-        <p className={styles.registerPrompt}>
-          До сих пор нет аккаунта?{" "}
-          <span className={styles.registerLink}>Зарегистрироваться</span>
+        <h2 className={styles.title}>Забыли пароль?</h2>
+        <p className={styles.description}>
+          Введите адрес электронной почты, связанный с вашей учетной записью.
+          Затем мы отправим вам код для восстановления и ссылку для сброса
+          пароля.
         </p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email" className={styles.visuallyHidden}>Почта</label>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label htmlFor="email" className={styles.visuallyHidden}>
+            Код
+          </label>
           <input
-            type="email"
-            id="email"
-            placeholder="Почта"
+            placeholder="Код"
             className={styles.inputField}
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <div className={styles.passwordContainer}>
-            <label htmlFor="password" className={styles.visuallyHidden}>Пароль</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              placeholder="Пароль"
-              className={styles.passwordInput}
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className={styles.passwordToggle}
-              aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
-            >
-              <img
-                src={showPassword ? "/images/hide-password.svg" : "/images/show-password.svg"}
-                alt=""
-                className={styles.passwordIcon}
-              />
-            </button>
-          </div>
           <button type="submit" className={styles.submitButton}>
-            Войти
+            Подтвердить
           </button>
         </form>
-        <a href="#" className={styles.forgotPassword}>Забыли пароль?</a>
+        <a href="#" className={styles.backLink} onClick={handleBackClick}>
+          Назад
+        </a>
       </div>
     </main>
   );
 };
 
-export default AuthorizationSignIn;
+export default ForgotPassword;

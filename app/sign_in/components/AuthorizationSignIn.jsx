@@ -48,7 +48,7 @@ const AuthorizationSignIn = () => {
             <span className={styles.registerLink}>Зарегистрироваться</span>
           </Link>
         </p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <label htmlFor="email" className={styles.visuallyHidden}>
             Почта
           </label>

@@ -1,80 +1,32 @@
-import React, { useState } from 'react';
-import styles from './AuthorizationSignIn.module.css';
+"use client";
+
+import React from "react";
+import styles from "./AuthorizationSignIn.module.css";
 import Link from "next/link";
-import GlobalStyles from './globals.css';
+import { useRouter } from "next/navigation";
 
-const AuthorizationSignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+const Success = () => {
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleBackClick = (e) => {
     e.preventDefault();
- 
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    // Перенаправление на страницу /sign_in при клике на "На страницу авторизации"
+    router.push("/sign_in");
   };
 
   return (
     <main className={styles.container}>
       <div className={styles.content}>
-        <header className={styles.header}>
-          <Link href="/"> <h1 className={styles.logo}>FexRate</h1></Link>
-          {/* <nav className={styles.navItem}>
-            <img src="/images/home-icon.svg" alt="" className={styles.navIcon} />
-            <span>Главная</span>
-          </nav> */}
-        </header>
-        <h2 className={styles.title}>Войти</h2>
-        <p className={styles.registerPrompt}>
-          До сих пор нет аккаунта?{" "}
-          <span className={styles.registerLink}>Зарегистрироваться</span>
+        <h2 className={styles.title}>Успех</h2>
+        <p className={styles.description}>
+          Ваш пароль был успешно восстановлен
         </p>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="email" className={styles.visuallyHidden}>Почта</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Почта"
-            className={styles.inputField}
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <div className={styles.passwordContainer}>
-            <label htmlFor="password" className={styles.visuallyHidden}>Пароль</label>
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              placeholder="Пароль"
-              className={styles.passwordInput}
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button
-              type="button"
-              onClick={togglePasswordVisibility}
-              className={styles.passwordToggle}
-              aria-label={showPassword ? "Скрыть пароль" : "Показать пароль"}
-            >
-              <img
-                src={showPassword ? "/images/hide-password.svg" : "/images/show-password.svg"}
-                alt=""
-                className={styles.passwordIcon}
-              />
-            </button>
-          </div>
-          <button type="submit" className={styles.submitButton}>
-            Войти
-          </button>
-        </form>
-        <a href="#" className={styles.forgotPassword}>Забыли пароль?</a>
+        <button className={styles.submitButton} onClick={handleBackClick}>
+          На страницу авторизации
+        </button>
       </div>
     </main>
   );
 };
 
-export default AuthorizationSignIn;
+export default Success;
