@@ -1,0 +1,203 @@
+.container {
+  align-items: center;
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  font-family: Inter, sans-serif;
+  color: #fff;
+  padding: 25px 80px 179px;
+}
+
+@media (max-width: 991px) {
+  .container {
+    padding: 0 20px 100px;
+  }
+}
+
+.content {
+  display: flex;
+  width: 940px;
+  max-width: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  align-self: stretch;
+  display: flex;
+  width: 100%;
+  gap: 40px 100px;
+  font-family: Roboto, sans-serif;
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .header {
+    max-width: 100%;
+    white-space: initial;
+  }
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.navItem {
+  align-self: start;
+  display: flex;
+  gap: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  flex: 1;
+}
+
+@media (max-width: 991px) {
+  .navItem {
+    white-space: initial;
+  }
+}
+
+.navIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 18px;
+  align-self: start;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 129px;
+}
+
+@media (max-width: 991px) {
+  .title {
+    margin-top: 40px;
+  }
+}
+
+.registerPrompt {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 17px;
+}
+
+.registerLink {
+  color: #4b7dff;
+}
+
+.inputField {
+  border-radius: 20px;
+  background-color: #fff;
+  margin-top: 56px;
+  width: 400px;
+  max-width: 100%;
+  font-size: 16px;
+  color: #8ea2bb;
+  font-weight: 300;
+  white-space: nowrap;
+  padding: 26px 30px;
+}
+
+@media (max-width: 991px) {
+  .inputField {
+    margin-top: 40px;
+    white-space: initial;
+    padding: 0 20px;
+  }
+}
+
+.passwordContainer {
+  border-radius: 20px;
+  background-color: #fff;
+  display: flex;
+  margin-top: 17px;
+  width: 400px;
+  max-width: 100%;
+  gap: 20px;
+  font-size: 16px;
+  color: #8ea2bb;
+  font-weight: 300;
+  white-space: nowrap;
+  justify-content: space-between;
+  padding: 23px 28px;
+}
+
+@media (max-width: 991px) {
+  .passwordContainer {
+    white-space: initial;
+    padding: 0 20px;
+  }
+}
+
+.passwordInput {
+  border: none;
+  background: transparent;
+  color: #8ea2bb;
+  font-size: 16px;
+  font-weight: 300;
+  flex-grow: 1;
+}
+
+.passwordToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.passwordIcon {
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 24px;
+}
+
+.submitButton {
+  align-self: stretch;
+  border-radius: 20px;
+  background-color: #2433bd;
+  margin-top: 47px;
+  min-height: 64px;
+  width: 400px;
+  max-width: 100%;
+  gap: 10px;
+  white-space: nowrap;
+  padding: 21px 140px;
+  font: 400 16px/1 Roboto, sans-serif;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .submitButton {
+    margin-top: 40px;
+    white-space: initial;
+    padding: 0 20px;
+  }
+}
+
+.forgotPassword {
+  color: #5162ff;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 21px;
+  text-decoration: none;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
