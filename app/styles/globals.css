@@ -21,11 +21,10 @@ body {
 
 .content {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 18% 0 18%;
   min-height: 100vh;
-  max-width: 940px;
+  width: 100vh;
   padding-top: 180px;
   padding-bottom: 80px;
 }
@@ -104,6 +103,11 @@ body {
   margin-bottom: 4px;
   border-radius: 30px;
   background: #1e1e1e;
+  transition: transform 0.3s ease;
+}
+
+.section2_example_block:hover {
+  transform: scale(1.02);
 }
 
 .section2_example_block .section2_text {
@@ -153,10 +157,26 @@ body {
   flex-shrink: 0;
   border-radius: 30px;
   background: #131313;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.section3_block1:hover {
+  transform: scale(1.02);
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.section3_block1:hover .description {
+  color: #000000;
 }
 
 .section3_block1 .section2_text {
   margin: 85px 0 0 59px;
+  transition: color 0.3s ease;
+}
+
+.section3_block1:hover .section2_text {
+  color: #000000;
 }
 
 .section3_img_1 {
@@ -234,6 +254,11 @@ body {
   flex-shrink: 0;
   border-radius: 20px;
   background: #d9d9d9;
+  transition: transform 0.3s ease;
+}
+
+.step_item:hover {
+  transform: scale(1.05);
 }
 
 .number {
@@ -273,6 +298,7 @@ body {
   display: flex;
   justify-content: normal;
   flex-shrink: 0;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .section5_img {
@@ -280,6 +306,11 @@ body {
   height: 249px;
   border-radius: 30px;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.section5_img:hover {
+  transform: scale(1.02);
 }
 
 .section5 .section2_text {
@@ -287,6 +318,7 @@ body {
   width: 414px;
   font-weight: bold;
   line-height: normal;
+  transition: color 0.3s ease;
 }
 
 .review_link {
@@ -310,6 +342,11 @@ body {
   border-radius: 30px;
   background: #ffffff;
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.section6:hover {
+  transform: scale(1.02);
 }
 
 .section6_text {
@@ -341,12 +378,24 @@ body {
   gap: 10px;
   border-radius: 20px;
   background: #2433bd;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn_link_to_convers:hover {
+  transform: scale(1.05);
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.btn_link_to_convers:active {
+  transform: scale(0.95);
 }
 
 .btn_link_to_convers .description {
   position: relative;
   width: auto;
   margin: 0 0 0 0;
+  color: inherit; /* Убедитесь, что текст наследует цвет от кнопки */
 }
 
 .icon1 {
