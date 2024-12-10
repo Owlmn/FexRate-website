@@ -90,6 +90,13 @@
   color: #4b7dff;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .inputField {
   border-radius: 20px;
   background-color: #fff;
@@ -101,6 +108,8 @@
   font-weight: 300;
   white-space: nowrap;
   padding: 26px 30px;
+  border: none; /* Убираем стандартную границу */
+  outline: none; /* Убираем обводку при фокусе */
 }
 
 @media (max-width: 991px) {
@@ -141,6 +150,7 @@
   font-size: 16px;
   font-weight: 300;
   flex-grow: 1;
+  outline: none; /* Убираем обводку при фокусе */
 }
 
 .passwordToggle {
@@ -157,21 +167,43 @@
   width: 24px;
 }
 
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; /* Увеличиваем отступ сверху */
+  justify-content: center;
+}
+
+.checkboxInput {
+  margin-right: 10px;
+  width: 20px; /* Увеличиваем размер поля для ввода галочки */
+  height: 20px; /* Увеличиваем размер поля для ввода галочки */
+}
+
+.checkboxLabel {
+  font-size: 14px;
+  color: #8ea2bb;
+}
+
 .submitButton {
-  align-self: stretch;
+  align-self: center; /* Выравниваем кнопку по центру */
   border-radius: 20px;
   background-color: #2433bd;
-  margin-top: 47px;
+  margin-top: 20px; /* Уменьшаем отступ сверху */
   min-height: 64px;
   width: 400px;
   max-width: 100%;
   gap: 10px;
   white-space: nowrap;
-  padding: 21px 140px;
   font: 400 16px/1 Roboto, sans-serif;
   border: none;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Плавный переход цвета фона */
+}
+
+.submitButton:hover {
+  background-color: #3a49e9; /* Чуть более светлый цвет при наведении */
 }
 
 @media (max-width: 991px) {
@@ -200,4 +232,10 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.inputField:focus,
+.passwordInput:focus {
+  outline: none; /* Убираем обводку при фокусе */
+  box-shadow: none; /* Убираем тень при фокусе, если она есть */
 }
