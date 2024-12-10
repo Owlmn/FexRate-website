@@ -1,7 +1,2 @@
-export default function Account(){
-    return(
-        <div>
-            <h1>  </h1>
-        </div>
-    );
-}
+import PersonalCabinet from "./personal_account_components/PersonalCabinet";
+export default PersonalCabinet;
