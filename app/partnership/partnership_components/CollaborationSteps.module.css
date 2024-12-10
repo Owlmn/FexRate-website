@@ -28,8 +28,13 @@
   background-color: #111;
   padding: 30px;
   border-radius: 30px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 300px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.stepCard:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .stepNumber {
@@ -41,6 +46,7 @@
 .stepDescription {
   font-size: 16px;
   line-height: 1.5;
+  font-weight: 300;
 }
 
 /* Медиа-запросы для адаптивного дизайна */

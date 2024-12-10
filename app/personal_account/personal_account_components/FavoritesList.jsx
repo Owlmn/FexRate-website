@@ -41,13 +41,10 @@ const FavoritesList = () => {
 
     const fetchRegularData = async () => {
       try {
-        const date = new Date();
-        const [year, month, day] = date
-          .toJSON()
-          .match("([0-9]+)-([0-9]+)-([0-9]+)")
-          .slice(1);
+        let date = new Date();
+        let day = String(date.getDate()).padStart(2, "0");
         const response = await axios.get(
-          `https://www.cbr-xml-daily.ru/archive/${year}/${month}/${day}/daily_json.js`
+            `https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${date.getMonth() + 1}/${day}/daily_json.js`
         );
         const regularData = [
           {

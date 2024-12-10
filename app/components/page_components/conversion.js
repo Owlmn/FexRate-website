@@ -21,6 +21,8 @@ export default function Conversion({ children }) {
   const inputRef = useRef(null);
   const dropdownRefFrom = useRef(null);
   const dropdownRefTo = useRef(null);
+  const [hasFetchedFiatRates, setHasFetchedFiatRates] = useState(false);
+  const [hasFetchedCryptoRates, setHasFetchedCryptoRates] = useState(false);
 
   useEffect(() => {
     const fetchFiatRates = async () => {
@@ -30,9 +32,7 @@ export default function Conversion({ children }) {
       while (!rates) {
         try {
           const response = await fetch(
-            `https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${
-              date.getMonth() + 1
-            }/${day}/daily_json.js`
+            `https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${date.getMonth() + 1}/${day}/daily_json.js`
           );
           if (!response.ok) {
             throw new Error("Not found");
@@ -127,12 +127,14 @@ export default function Conversion({ children }) {
       }
     };
 
-    if (activeButton === "Валюта") {
+    if (activeButton === "Валюта" && !hasFetchedFiatRates) {
       fetchFiatRates();
-    } else if (activeButton === "Криптовалюта") {
+      setHasFetchedFiatRates(true);
+    } else if (activeButton === "Криптовалюта" && !hasFetchedCryptoRates) {
       fetchCryptoRates();
+      setHasFetchedCryptoRates(true);
     }
-  }, [activeButton]);
+  }, [activeButton, hasFetchedFiatRates, hasFetchedCryptoRates]);
 
   useEffect(() => {
     if (

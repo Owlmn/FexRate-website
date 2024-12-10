@@ -24,7 +24,7 @@
   /*padding: 0 16px; !* Отступы для мелких экранов *!*/
 }
 
-.nav-container {
+.nav-menu {
   width: 100%;
   margin: 0 auto;
   max-width: 940px; /* Максимальная ширина для контейнера */
@@ -55,7 +55,7 @@ nav a.active {
 }
 
 /* Заголовок */
-.nav-container .title {
+.nav-menu .title {
   color: var(--color-white-solid);
   font-family: Roboto, sans-serif;
   font-size: 24px;
