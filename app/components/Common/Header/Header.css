@@ -15,66 +15,63 @@
   position: fixed;
   top: 0;
   left: 0;
-  right: 0; /* Добавлено для полной ширины */
+  right: 0;
   z-index: 100;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /*padding: 0 16px; !* Отступы для мелких экранов *!*/
 }
 
+.nav-container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 940px; /* Максимальная ширина для контейнера */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Навигация */
 nav {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  margin: 9px 160px 11px 300px; /* Изменены значения margin */
   white-space: nowrap;
+  margin: 0 0 0 auto;
 }
 
 nav a {
   color: var(--color-white-solid);
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 }
 
 nav a.active {
-  color: #5162ff;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
+  color: var(--foreground);
 }
 
-.nav-menu {
-  width: 100%;
-  height: 39px;
-  display: flex;
-  flex-shrink: 0;
-  margin-right: 270px; /* Изменены значения margin */
-  margin-left: 270px; /* Изменены значения margin */
-  margin-top: 20px;
-}
-
-.nav-menu .title {
+/* Заголовок */
+.nav-container .title {
   color: var(--color-white-solid);
   font-family: Roboto, sans-serif;
   font-size: 24px;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
 }
 
+/* Кнопка */
 .login-button {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 
   display: inline-flex;
-  padding: 10px 16px;
+  padding: 8px 16px;
+
   justify-content: center;
   align-items: center;
   gap: 7px;
@@ -86,4 +83,40 @@ nav a.active {
 .login-button img {
   width: 19px;
   height: 17px;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+  .box {
+    padding: 0 12px; /* Уменьшение отступов */
+  }
+
+  nav {
+    margin-left: 2%;
+    gap: 20px; /* Уменьшение расстояния между ссылками */
+  }
+
+  .nav-menu .title {
+    font-size: 20px; /* Уменьшение размера текста */
+  }
+
+  .login-button {
+    font-size: 14px; /* Уменьшение размера текста кнопки */
+    padding: 8px 12px; /* Уменьшение отступов */
+  }
+}
+
+@media (max-width: 940px) {
+  .nav-container {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-menu .title {
+    font-size: 18px;
+  }
+  .login-button {
+    margin-left: 5%;
+  }
 }

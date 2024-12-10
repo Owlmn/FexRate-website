@@ -49,6 +49,7 @@
   width: 254px;
   max-width: 100%;
   height: auto;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 991px) {

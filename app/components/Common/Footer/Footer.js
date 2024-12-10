@@ -8,6 +8,7 @@ export function Footer({ children }) {
   return (
     <div>
       <div className="footer-box">
+        <div className="footer-container">
         <div className="block_1">
           <div className="list">
             <Link href="/" className="f-title">
@@ -57,6 +58,7 @@ export function Footer({ children }) {
             </ul>
           </div>
         </div>
+      </div>
       </div>
       {children}
     </div>

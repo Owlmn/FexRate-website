@@ -3,73 +3,75 @@
 @tailwind utilities;
 
 .convert {
-  width: 940px;
-  height: 558px;
-  flex-shrink: 0;
-  border-radius: 40px;
-  background-color: #131313;
+    max-width: 940px;
+    max-height: 440px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    background-color: #131313;
 }
 
 .temp {
-  width: 940px;
-  height: 558px;
-  display: inline-flex;
-  justify-content: normal;
+    width: 100%;
+    height: 100%;
+    max-width: 940px;
+    max-height: 440px;
+    display: inline-flex;
+    justify-content: normal;
+    position: relative;
+    flex-wrap: wrap; /* Добавлено для адаптивности */
 }
 
 .conversion_text {
-  margin: 24px 111px 511px 63px;
-  color: #fff;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 23px;
+    margin: 24px 0 60% 6.7%;
+    color: #FFF;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center; /* Добавлено для адаптивности */
 }
 
 .exchange_method {
-  width: 593px;
-  height: 58px;
-  transform: skew(38deg);
-  display: inline-flex;
-  justify-content: normal;
-  flex-shrink: 0;
-  border-radius: 0 0 0 16px;
-  background: #fff;
-  gap: 7px;
+    position: relative;
+    width: 100%;
+    max-width: 590px;
+    max-height: 58px;
+    margin-right: 0;
+    margin-left: 15%;
+    display: inline-flex;
+    justify-content: center;
+    gap: 7px;
+    z-index: 2;
+    /*flex-wrap: nowrap; !* Для адаптивности *!*/
 }
 
-.rectangle {
-  margin-left: -36px;
-  width: 65px;
-  height: 58px;
-  flex-shrink: 0;
-  border-radius: 0 25px 0 0;
-  background: #fff;
+.background {
+    right: 0;
+    position: absolute;
+    z-index: 1;
 }
 
 .conversion_text2 {
-  margin: 18px 67px 17px 55px;
-  transform: skew(-38deg);
-  color: #131313;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 23px;
+    color: #131313;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    margin-right: 12%;
+    align-self: center;
+    text-align: center; /* Добавлено для адаптивности */
 }
 
 .currency_button {
-  width: auto;
-  height: auto;
-  padding: 10px 20px;
-  margin: 8px 0 0 0;
-  display: inline-flex;
-  transform: skew(-38deg);
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px 20px 0 0;
-  background: #131313;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    margin: 8px 0 0 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px 20px 0 0;
+    background: #131313;
 }
 
 .currency_button.active {
@@ -129,7 +131,10 @@ input[type="text"] {
 }
 
 .icon {
-  margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
 }
 
 .currency_type_text {
@@ -139,6 +144,33 @@ input[type="text"] {
   font-style: normal;
   font-weight: 500;
   line-height: 23px;
+}
+
+.currency_type {
+    appearance: none;
+    outline: none;
+    border: none;
+    color: #272727;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.currency_type option {
+    color: #272727;
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    outline: none;
+    background-color: #A7B0BD;
 }
 
 .switch {
@@ -165,21 +197,4 @@ input[type="text"] {
   flex-shrink: 0;
   border-radius: 20px;
   background: #d9d9d9;
-}
-
-.convert_button {
-  position: absolute;
-  margin: 432px 224px 53px 230px;
-  display: inline-flex;
-  padding: 30px 150px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 20px;
-  background: #2433bd;
-}
-
-.convert_button .conversion_text {
-  margin: 0 0 0 0;
-  font-size: 24px;
 }
