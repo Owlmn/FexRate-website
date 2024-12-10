@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mathieuc/tradingview": "^3.4.6",
+    "axios": "^1.7.9",
     "i": "^0.3.7",
     "next": "^14.2.15",
     "react": "^18",

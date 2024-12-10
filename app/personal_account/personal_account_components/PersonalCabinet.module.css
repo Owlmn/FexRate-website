@@ -139,6 +139,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.currencyItem:hover {
+  transform: scale(1.05);
 }
 
 .currencyInfo {
@@ -332,4 +337,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.favoriteItem:hover {
+  transform: scale(1.05);
 }
