@@ -135,10 +135,6 @@ nav a.active {
     align-items: center;
     gap: 10px;
   }
-
-  .nav-menu .title {
-    font-size: 18px;
-  }
   .login-button {
     margin-left: 5%;
   }
