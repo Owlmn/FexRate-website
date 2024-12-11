@@ -3,7 +3,7 @@ import styles from "./PersonalCabinet.module.css";
 
 const ActionButtons = () => {
   const handleLogout = () => {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "http://localhost:3000/main_page";
   };
 
   const handleHelp = () => {

@@ -10,11 +10,11 @@ export function Header({ children }) {
   return (
     <div className="box">
       <div className="nav-menu">
-        <Link href="/" className="title">
+        <Link href="/main_page" className="title">
           FexRate
         </Link>
         <nav>
-          <Link href="/" className={pathname === "/" ? "active" : ""}>
+          <Link href="/main_page" className={pathname === "/main_page" ? "active" : ""}>
             Конвертация
           </Link>
           <Link

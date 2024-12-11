@@ -11,7 +11,7 @@ export function Footer({ children }) {
         <div className="footer-container">
         <div className="block_1">
           <div className="list">
-            <Link href="/" className="f-title">
+            <Link href="/main_page" className="f-title">
               FexRate
             </Link>
             <div className="text1">Создано FexRate Team</div>
@@ -30,11 +30,11 @@ export function Footer({ children }) {
         </div>
         <div className="block_2">
           <div className="list2">
-            <Link href="/" className="f2-title">
+            <Link href="/main_page" className="f2-title">
               FexRate
             </Link>
             <ul className="text2">
-              <Link href="/">
+              <Link href="/main_page">
                 <li>Конвертация</li>
               </Link>
               <Link href="/charts">

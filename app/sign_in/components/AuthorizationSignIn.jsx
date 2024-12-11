@@ -37,7 +37,7 @@ const AuthorizationSignIn = () => {
     <main className={styles.container}>
       <div className={styles.content}>
         <header className={styles.header}>
-          <Link href="/">
+          <Link href="/main_page">
             <h1 className={styles.logo}>FexRate</h1>
           </Link>
         </header>

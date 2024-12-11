@@ -371,6 +371,7 @@ export default function Conversion({ children }) {
               value={fromAmount}
               onChange={handleInputChange}
               onKeyDown={handleKeyPress}
+              className="conversion_input"
             />
             <div
               className="currency_selector"
@@ -432,6 +433,7 @@ export default function Conversion({ children }) {
               type="text"
               value={toAmount}
               readOnly
+              className="conversion_input"
               placeholder={
                 (activeButton === "Валюта" &&
                   fiatRates[selectedToCurrency] &&
