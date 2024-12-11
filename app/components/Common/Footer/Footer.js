@@ -53,8 +53,24 @@ export function Footer({ children }) {
             <div className="list2">
               <div className="f2-title">Информация</div>
               <ul className="text2">
-                <li>Поддержка</li>
-                <li>Правила</li>
+                <li>
+                  <a
+                    href="https://t.me/eruma1ra"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Поддержка
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://t.me/eruma1ra"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Правила
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
