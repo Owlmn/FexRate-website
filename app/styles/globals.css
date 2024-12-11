@@ -22,11 +22,12 @@ body {
 .content {
   display: flex;
   flex-direction: column;
-  margin: 0 17% 0 17%;
+  align-items: center; /* Центрирование по горизонтали */
+  justify-content: center; /* Центрирование по вертикали */
+  margin: 0 10%; /* Используем проценты для адаптивности */
   min-height: 100vh;
-  /*width: 100vh;*/
-  padding-top: 180px;
-  padding-bottom: 80px;
+  padding-top: 10vh; /* Используем vh для адаптивности */
+  padding-bottom: 5vh; /* Используем vh для адаптивности */
 }
 
 .section2 {
