@@ -16,6 +16,7 @@ export default function RootLayout({ children }) {
     "/forget_password1",
     "/forget_password2",
     "/forget_password3",
+    "/personal_account",
   ];
 
   // Array of paths where footer should be disabled
