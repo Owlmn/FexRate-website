@@ -17,131 +17,131 @@ import Jpy from "@/app/public/icons/jpy.svg";
 export default function Popular_exchange_pairs() {
     return (
         <div className="section2">
-            <text className="section2_text">Популярные обменные пары</text>
+            <div className="section2_text">Популярные обменные пары</div>
             <div className="section2_block">
-                <text className="section2_text">Криптовалюта</text>
-                <text className="section2_text">Валюта</text>
+                <div className="section2_text">Криптовалюта</div>
+                <div className="section2_text">Валюта</div>
                 <div className="currency_list">
                     <div className="section2_example_block">
-                        <text className="section2_text">1</text>
+                        <div className="section2_text">1</div>
                         <div className="icon_container">
                             <Image src={Bit} alt=""/>
-                            <text className="section2_text">BTC</text>
+                            <div className="section2_text">BTC</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Usdt} alt=""/>
-                            <text className="section2_text">USDT</text>
+                            <div className="section2_text">USDT</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">2</text>
+                        <div className="section2_text">2</div>
                         <div className="icon_container">
                             <Image src={Eth} alt=""/>
-                            <text className="section2_text">ETH</text>
+                            <div className="section2_text">ETH</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Usdt} alt=""/>
-                            <text className="section2_text">USDT</text>
+                            <div className="section2_text">USDT</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">3</text>
+                        <div className="section2_text">3</div>
                         <div className="icon_container">
                             <Image src={Sol} alt=""/>
-                            <text className="section2_text">SOL</text>
+                            <div className="section2_text">SOL</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Ton} alt=""/>
-                            <text className="section2_text">TON</text>
+                            <div className="section2_text">TON</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">4</text>
+                        <div className="section2_text">4</div>
                         <div className="icon_container">
                             <Image src={Dot} alt=""/>
-                            <text className="section2_text">DOT</text>
+                            <div className="section2_text">DOT</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Matic} alt=""/>
-                            <text className="section2_text">MATIC</text>
+                            <div className="section2_text">MATIC</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">5</text>
+                        <div className="section2_text">5</div>
                         <div className="icon_container">
                             <Image src={Bit} alt=""/>
-                            <text className="section2_text">BTC</text>
+                            <div className="section2_text">BTC</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Eth} alt=""/>
-                            <text className="section2_text">ETH</text>
+                            <div className="section2_text">ETH</div>
                         </div>
                     </div>
                 </div>
                 <div className="currency_list2">
                     <div className="section2_example_block">
-                        <text className="section2_text">1</text>
+                        <div className="section2_text">1</div>
                         <div className="icon_container">
                             <Image src={Usd} alt=""/>
-                            <text className="section2_text">USD</text>
+                            <div className="section2_text">USD</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Rub} alt=""/>
-                            <text className="section2_text">RUB</text>
+                            <div className="section2_text">RUB</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">2</text>
+                        <div className="section2_text">2</div>
                         <div className="icon_container">
                             <Image src={Euro} alt=""/>
-                            <text className="section2_text">EUR</text>
+                            <div className="section2_text">EUR</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Rub} alt=""/>
-                            <text className="section2_text">RUB</text>
+                            <div className="section2_text">RUB</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">3</text>
+                        <div className="section2_text">3</div>
                         <div className="icon_container">
                             <Image src={Usd} alt=""/>
-                            <text className="section2_text">USD</text>
+                            <div className="section2_text">USD</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Euro} alt=""/>
-                            <text className="section2_text">EUR</text>
+                            <div className="section2_text">EUR</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">4</text>
+                        <div className="section2_text">4</div>
                         <div className="icon_container">
                             <Image src={Rub} alt=""/>
-                            <text className="section2_text">RUB</text>
+                            <div className="section2_text">RUB</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Cny} alt=""/>
-                            <text className="section2_text">CNY</text>
+                            <div className="section2_text">CNY</div>
                         </div>
                     </div>
                     <div className="section2_example_block">
-                        <text className="section2_text">5</text>
+                        <div className="section2_text">5</div>
                         <div className="icon_container">
                             <Image src={Rub} alt=""/>
-                            <text className="section2_text">RUB</text>
+                            <div className="section2_text">RUB</div>
                         </div>
                         <Image src={Image1} alt="" className="vector"/>
                         <div className="icon_container">
                             <Image src={Jpy} alt=""/>
-                            <text className="section2_text">JPY</text>
+                            <div className="section2_text">JPY</div>
                         </div>
                     </div>
                 </div>

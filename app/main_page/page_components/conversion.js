@@ -63,7 +63,7 @@ export default function Conversion({ children }) {
             });
           }
         } catch (error) {
-          date.setDate(date.getDate() - 1);
+          day = day - 1;
         }
       }
     };
@@ -363,7 +363,7 @@ export default function Conversion({ children }) {
           <Image src={BGD} alt="" className="background"></Image>
 
           <div className="input_currency">
-            <text className="input_text">Вы вводите</text>
+            <div className="input_text">Вы вводите</div>
             <input
               type="text"
               ref={inputRef}
@@ -428,7 +428,7 @@ export default function Conversion({ children }) {
             </svg>
           </button>
           <div className="output_currency">
-            <text className="input_text">Вы получаете</text>
+            <div className="input_text">Вы получаете</div>
             <input
               type="text"
               value={toAmount}
