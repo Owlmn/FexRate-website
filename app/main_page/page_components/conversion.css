@@ -1,25 +1,21 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .convert {
-  width: 100%; /* Занимаем всю доступную ширину */
-  max-width: 940px; /* Максимальная ширина контейнера */
+  /*width: 100%;*/
+  width: 940px;
   max-height: 528px;
   flex-shrink: 0;
   border-radius: 40px;
   background-color: #131313;
-  margin: 0 auto; /* Центрирование блока по горизонтали */
-  /*padding: 20px; !* Добавляем внутренние отступы *!*/
-  box-sizing: border-box; /* Учитываем отступы при расчете ширины и высоты */
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .temp {
   width: 100%;
   height: 100%;
-  /*display: flex;*/
-  /*flex-direction: column;*/
   align-items: center;
   position: relative;
 }
@@ -34,12 +30,10 @@
 }
 
 .exchange_method {
-  width: 100%; /* Используем проценты для адаптивности */
-  max-height: 58px;
+  width: 470px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 7px;
-  z-index: 2;
 }
 
 .background {
@@ -47,17 +41,8 @@
   height: 58px;
   top: 0;
   right: 0;
-  position: absolute;
-  z-index: 1;
-}
-
-.conversion_text2 {
-  color: #131313;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 23px;
-  text-align: center;
+  /*position: absolute;*/
+  /*z-index: 1;*/
 }
 
 .currency_button {
@@ -74,13 +59,9 @@
   background: #2433bd;
 }
 
-.currency_button .conversion_text {
-  margin: 0;
-}
-
 .input_currency,
 .output_currency {
-  width: 90%; /* Используем проценты для адаптивности */
+  width: 90%;
   height: 81px;
   display: flex;
   justify-content: space-between;
@@ -110,13 +91,13 @@
   font-size: 32px;
   font-weight: 500;
   line-height: 23px;
-  width: 60%; /* Используем проценты для адаптивности */
+  width: 60%;
 }
 
 .currency_selector {
   display: flex;
   align-items: center;
-  width: 35%; /* Используем проценты для адаптивности */
+  width: 35%;
   height: 81px;
   border-radius: 0 20px 20px 0;
   background: #a7b0bd;
@@ -147,15 +128,6 @@
   scrollbar-color: #606e80 transparent;
 }
 
-.dropdown_menu::-webkit-scrollbar {
-  background: transparent;
-}
-
-.dropdown_menu::-webkit-scrollbar-thumb {
-  background: #606e80;
-  border-radius: 10px;
-}
-
 .dropdown_item {
   padding: 10px 20px;
   cursor: pointer;
@@ -163,56 +135,6 @@
 
 .dropdown_item:hover {
   background: #8a95a3;
-}
-
-.currency_type {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 81px;
-  border-radius: 0 20px 20px 0;
-  background: #a7b0bd;
-  gap: 18px;
-}
-
-.icon {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: 20px;
-}
-
-.currency_type_text {
-  color: #272727;
-  font-family: Roboto, sans-serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 23px;
-}
-
-.currency_type {
-  appearance: none;
-  outline: none;
-  border: none;
-  color: #272727;
-  font-family: Roboto, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 23px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-}
-
-.currency_type option {
-  color: #272727;
-  font-family: Roboto, sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 40px;
-  outline: none;
-  background-color: #a7b0bd;
 }
 
 .switch {

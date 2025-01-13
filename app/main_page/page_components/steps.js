@@ -13,7 +13,7 @@ export default function Steps() {
                     </div>
                     <Image src={Line} alt=""></Image>
                     <div className="step_item">
-                        <text className="number">2</text>
+                        <div className="number">2</div>
                     </div>
                     <Image src={Line} alt=""></Image>
                     <div className="step_item">

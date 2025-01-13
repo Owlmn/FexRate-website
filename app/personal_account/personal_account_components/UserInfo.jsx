@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from "react";
 import styles from "./PersonalCabinet.module.css";
 import ActionButtons from "./ActionButtons";
+import openedEye from "/app/public/icons/basil_eye-outline.svg"
+import closedEye from "/app/public/icons/basil_eye-closed-outline.svg"
+import Image from "next/image";
 
 const UserInfo = () => {
   const [userFields, setUserFields] = useState([
@@ -115,16 +118,12 @@ const UserInfo = () => {
                             className={styles.inputField}
                             placeholder="Введите новый пароль"
                         />
-                        <img
-                            src={
-                              showPassword
-                                  ? "https://cdn.builder.io/api/v1/image/assets/visible_icon"
-                                  : "https://cdn.builder.io/api/v1/image/assets/hidden_icon"
-                            }
+                        <Image
+                            src={showPassword ? openedEye : closedEye}
                             alt="Показать пароль"
                             className={styles.showPasswordIcon}
                             onClick={togglePasswordVisibility}
-                            style={{ cursor: "pointer" }}
+                            style={{cursor: "pointer"}}
                         />
                       </div>
                   ) : (
