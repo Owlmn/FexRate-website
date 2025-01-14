@@ -410,7 +410,7 @@ export default function Conversion({ children }) {
                 )}
               </div>
             </div>
-            <div className="hollow_thing"></div>
+            {/*<div className="hollow_thing"></div>*/}
             <button className="switch" onClick={handleSwitch}>
               <svg
                   xmlns="http://www.w3.org/2000/svg"

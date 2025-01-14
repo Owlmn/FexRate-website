@@ -99,7 +99,7 @@
 }
 
 .output_currency {
-  margin: 0 2rem 2rem 2rem;
+  margin: 4.5rem 2rem 2rem 2rem;
 }
 
 .input_text {
@@ -235,17 +235,19 @@
   background-color: #a7b0bd;
 }
 
-.hollow_thing {
-  width: 8rem;
-  height: 1rem;
-}
+/*.hollow_thing {*/
+/*  width: 100%;*/
+/*  max-width: 16rem;*/
+/*  height: 1rem;*/
+/*}*/
 
 .switch {
-  /*position: absolute;*/
+  position: absolute;
+  right: 0;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem 4rem 1rem 0;
+  margin: 12.5rem 4rem 1rem 0;
   width: 40px;
   height: 40px;
   flex-shrink: 0;
