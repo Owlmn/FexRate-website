@@ -8,7 +8,7 @@ export default function Reviews () {
             <Image src={reviews} alt="" className="section5_img"></Image>
             <div className="section2_text">Вы можете ознакомиться с различными отзывами от наших клиентов</div>
             <Link href="" className="review_link">
-                <text>Подробнее {'>>'}</text>
+                <div>Подробнее {'>>'}</div>
             </Link>
         </div>
     );

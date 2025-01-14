@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 .convert {
+  width: 100%;
+  height: 100%;
   max-width: 940px;
-  max-height: 528px; /* Увеличение высоты на 20% */
+  max-height: 528px;
   flex-shrink: 0;
   border-radius: 40px;
   background-color: #131313;
@@ -14,30 +16,29 @@
   width: 100%;
   height: 100%;
   max-width: 940px;
-  max-height: 528px; /* Увеличение высоты на 20% */
+  max-height: 528px;
   display: inline-flex;
-  justify-content: normal;
+  justify-content: space-between;
   position: relative;
-  flex-wrap: wrap; /* Добавлено для адаптивности */
+  flex-wrap: wrap;
 }
 
 .conversion_text {
-  margin: 24px 0 60% 6.7%;
+  margin: 2rem 0 0 2rem;
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 23px;
-  text-align: center; /* Добавлено для адаптивности */
+  text-align: center;
 }
 
 .exchange_method {
   position: relative;
-  width: 100%;
   max-width: 590px;
-  max-height: 58px;
-  margin-right: 0;
-  margin-left: 15%;
+  padding: 0 4rem 0 0;
+  border-radius: 0 40px 0 20px;
+  /*background-color: white;*/
   display: inline-flex;
   justify-content: center;
   gap: 7px;
@@ -65,13 +66,13 @@
 .currency_button {
   width: auto;
   height: auto;
-  padding: 10px 20px;
-  margin: 8px 0 0 0;
+  padding: 16px 20px;
+  /*margin: 8px 0 0 0;*/
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px 20px 0 0;
-  background: #131313;
+  border-radius: 0 0 20px 20px;
+  background: #1E1E1E;
 }
 
 .currency_button.active {
@@ -82,17 +83,23 @@
   margin: 0 0 0 0;
 }
 
-.input_currency {
-  position: absolute;
+.input_currency,
+.output_currency {
+  /*position: absolute;*/
+  flex: 1;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
   width: 820px;
   height: 81px;
-  margin: 150px 0 0 63px;
+  margin: 3rem 2rem 0 2rem;
   flex-shrink: 0;
   border-radius: 20px;
   background: #d9d9d9;
+}
+
+.output_currency {
+  margin: 0 2rem 2rem 2rem;
 }
 
 .input_text {
@@ -228,12 +235,17 @@
   background-color: #a7b0bd;
 }
 
+.hollow_thing {
+  width: 8rem;
+  height: 1rem;
+}
+
 .switch {
-  position: absolute;
+  /*position: absolute;*/
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 250px 0 0 823px;
+  margin: 1rem 4rem 1rem 0;
   width: 40px;
   height: 40px;
   flex-shrink: 0;
@@ -241,15 +253,3 @@
   border-radius: 10px;
 }
 
-.output_currency {
-  position: absolute;
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 820px;
-  height: 81px;
-  margin: 310px 0 0 63px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #d9d9d9;
-}

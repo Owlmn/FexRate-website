@@ -11,11 +11,32 @@ const AuthorizationSignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Перенаправление на страницу /personal_account при успешной отправке формы
-    router.push("/personal_account");
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // alert("Вход выполнен успешно!");
+        router.push("/personal_account");
+      } else {
+        alert(`Ошибка: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Ошибка при входе:", error);
+      alert("Произошла ошибка при входе. Попробуйте позже.");
+    }
   };
+
 
   const handleRegisterClick = (e) => {
     e.preventDefault();

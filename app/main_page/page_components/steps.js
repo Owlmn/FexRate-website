@@ -5,30 +5,30 @@ import Arrow from "@/app/public/icons/arrow.svg";
 export default function Steps() {
     return (
         <div className="section4">
-            <text className="section2_text">Как это работает</text>
+            <div className="section2_text">Как это работает</div>
             <div className="section4_block">
                 <div className="steps">
                     <div className="step_item">
-                        <text className="number">1</text>
+                        <div className="number">1</div>
                     </div>
                     <Image src={Line} alt=""></Image>
                     <div className="step_item">
-                        <text className="number">2</text>
+                        <div className="number">2</div>
                     </div>
                     <Image src={Line} alt=""></Image>
                     <div className="step_item">
-                        <text className="number">3</text>
+                        <div className="number">3</div>
                     </div>
                     <Image src={Arrow} alt=""></Image>
                     <div className="step_item">
-                        <text className="number_special">4</text>
+                        <div className="number_special">4</div>
                     </div>
                 </div>
                 <div className="step_description">
-                    <text className="description">Выбираете то, что хотите менять</text>
-                    <text className="description">Выбираете то, на что хотите менять</text>
-                    <text className="description">Нажимаете на кнопу “Обменять”</text>
-                    <text className="description">Обмен готов!</text>
+                    <div className="description">Выбираете то, что хотите менять</div>
+                    <div className="description">Выбираете то, на что хотите менять</div>
+                    <div className="description">Нажимаете на кнопу “Обменять”</div>
+                    <div className="description">Обмен готов!</div>
                 </div>
             </div>
         </div>

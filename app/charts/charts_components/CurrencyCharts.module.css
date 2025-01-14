@@ -1,0 +1,152 @@
+.ChartContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.currencyList {
+    gap: 16px;
+    border-radius: 16px;
+    overflow: hidden; /* Скрывает излишки содержимого, когда список расширяется */
+}
+
+.currencyRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: rgba(18, 18, 18, 0.50);
+    transition: background-color 0.3s ease;
+}
+
+.currencyInfo {
+    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    flex-grow: 1; /* Это поможет выравнивать элементы равномерно */
+}
+
+.currencyName {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.currencyCode {
+    font-size: 14px;
+    color: #4B7DFF; /* Синий цвет для кода валюты */
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.currencyPrice {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.currencyChange {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.positive {
+    color: #4caf50;
+}
+
+.negative {
+    color: #f44336;
+}
+
+.chartSwitcher {
+    margin-top: 20px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.switchButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3b3b3b;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.switchButton.active {
+    background-color: #2433bd;
+    color: white;
+}
+
+.showMoreButton {
+    display: inline-flex;
+    justify-self: flex-end;
+    padding: 15px 25px;
+    font-size: 18px;
+    color: #4B7DFF;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+
+.searchInput {
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000000;
+    width: 250px;
+    outline: none;
+    border: none;
+    transition: background-color 0.3s ease;
+    border-bottom: 2px solid #a8a8a8;
+    margin-right: auto;
+}
+
+.searchInput::placeholder {
+    color: #a8a8a8;
+}
+
+.searchButtonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.showMoreButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.favoriteButton path{
+    background: none;
+    border: none;
+    stroke: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.favoriteButton:hover path{
+    fill: #ffae00;
+    stroke: none;
+}
+
+.favoriteButton.favorited path{
+    fill: #ffae00;
+    stroke: none;
+}
