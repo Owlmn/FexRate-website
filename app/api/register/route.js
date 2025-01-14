@@ -56,7 +56,6 @@ export async function POST(req) {
 
         // Установка cookie для текущего пользователя
         (await cookies()).set("user_email", email, {
-            httpOnly: true,
             path: "/",
             maxAge: 60 * 60 * 24 * 7,
         });
