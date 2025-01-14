@@ -1,0 +1,9 @@
+.collaborationPage {
+  background-color: #010101;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  font-family: Roboto, sans-serif;
+  color: #fff;
+}
