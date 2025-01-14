@@ -3,24 +3,28 @@
 @tailwind utilities;
 
 .convert {
-  /*width: 100%;*/
-  width: 940px;
+  width: 100%;
+  height: 100%;
+  max-width: 940px;
   max-height: 528px;
   flex-shrink: 0;
   border-radius: 40px;
   background-color: #131313;
-  margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .temp {
   width: 100%;
   height: 100%;
-  align-items: center;
+  max-width: 940px;
+  max-height: 528px;
+  display: inline-flex;
+  justify-content: space-between;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .conversion_text {
+  margin: 2rem 0 0 2rem;
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 16px;
@@ -30,52 +34,80 @@
 }
 
 .exchange_method {
-  width: 470px;
-  display: flex;
-  justify-content: flex-end;
+  position: relative;
+  max-width: 590px;
+  padding: 0 4rem 0 0;
+  border-radius: 0 40px 0 20px;
+  /*background-color: white;*/
+  display: inline-flex;
+  justify-content: center;
   gap: 7px;
+  z-index: 2;
+  /*flex-wrap: nowrap; !* Для адаптивности *!*/
 }
 
 .background {
-  width: 68%;
-  height: 58px;
-  top: 0;
   right: 0;
-  /*position: absolute;*/
-  /*z-index: 1;*/
+  position: absolute;
+  z-index: 1;
+}
+
+.conversion_text2 {
+  color: #131313;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 23px;
+  margin-right: 12%;
+  align-self: center;
+  text-align: center; /* Добавлено для адаптивности */
 }
 
 .currency_button {
-  padding: 10px 20px;
-  display: flex;
+  width: auto;
+  height: auto;
+  padding: 16px 20px;
+  /*margin: 8px 0 0 0;*/
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  background: #131313;
-  cursor: pointer;
+  border-radius: 0 0 20px 20px;
+  background: #1E1E1E;
 }
 
 .currency_button.active {
   background: #2433bd;
 }
 
+.currency_button .conversion_text {
+  margin: 0 0 0 0;
+}
+
 .input_currency,
 .output_currency {
-  width: 90%;
-  height: 81px;
-  display: flex;
+  /*position: absolute;*/
+  flex: 1;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
+  width: 820px;
+  height: 81px;
+  margin: 3rem 2rem 0 2rem;
+  flex-shrink: 0;
   border-radius: 20px;
   background: #d9d9d9;
-  margin: 0 3rem 20px 3rem;
+}
+
+.output_currency {
+  margin: 0 2rem 2rem 2rem;
 }
 
 .input_text {
-  margin: 0 0 0 20px;
+  margin: 29px 0 29px 45px;
   color: #606e80;
   font-family: Roboto, sans-serif;
   font-size: 16px;
+  font-style: normal;
   font-weight: 400;
   line-height: 23px;
 }
@@ -89,16 +121,18 @@
   text-align: right;
   font-family: Roboto, sans-serif;
   font-size: 32px;
+  font-style: normal;
   font-weight: 500;
   line-height: 23px;
-  width: 60%;
 }
 
 .currency_selector {
+  position: relative;
   display: flex;
   align-items: center;
-  width: 35%;
+  width: 280px;
   height: 81px;
+  flex-shrink: 0;
   border-radius: 0 20px 20px 0;
   background: #a7b0bd;
   gap: 18px;
@@ -109,6 +143,7 @@
   color: #272727;
   font-family: Roboto, sans-serif;
   font-size: 20px;
+  font-style: normal;
   font-weight: 500;
   line-height: 23px;
   padding: 0 20px;
@@ -116,7 +151,7 @@
 
 .dropdown_menu {
   position: absolute;
-  top: 100%;
+  top: 79%;
   left: 0;
   width: 100%;
   max-height: 200px;
@@ -128,6 +163,15 @@
   scrollbar-color: #606e80 transparent;
 }
 
+.dropdown_menu::-webkit-scrollbar {
+  background: transparent;
+}
+
+.dropdown_menu::-webkit-scrollbar-thumb {
+  background: #606e80; /* Темный цвет для ползунка */
+  border-radius: 10px;
+}
+
 .dropdown_item {
   padding: 10px 20px;
   cursor: pointer;
@@ -137,15 +181,75 @@
   background: #8a95a3;
 }
 
-.switch {
+.currency_type {
   display: flex;
+  align-items: center;
+  width: 241px;
+  height: 81px;
+  flex-shrink: 0;
+  border-radius: 0 20px 20px 0;
+  background: #a7b0bd;
+  gap: 18px;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.currency_type_text {
+  color: #272727;
+  font-family: Roboto, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+}
+
+.currency_type {
+  appearance: none;
+  outline: none;
+  border: none;
+  color: #272727;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.currency_type option {
+  color: #272727;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 40px;
+  outline: none;
+  background-color: #a7b0bd;
+}
+
+.hollow_thing {
+  width: 8rem;
+  height: 1rem;
+}
+
+.switch {
+  /*position: absolute;*/
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem 4rem 1rem 0;
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
   background: #d9d9d9;
   border-radius: 10px;
-  cursor: pointer;
-  margin: 0 8rem 20px 0;
-  float: right;
 }
+

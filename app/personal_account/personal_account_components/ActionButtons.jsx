@@ -2,11 +2,25 @@ import React from "react";
 import styles from "./PersonalCabinet.module.css";
 
 const ActionButtons = () => {
-  const handleLogout = () => {
-    window.location.href = "http://localhost:3000/main_page";
-  };
+    const handleLogout = async () => {
+        try {
+            const response = await fetch("/api/user", { method: "DELETE" });
+            const data = await response.json();
 
-  const handleHelp = () => {
+            if (response.ok) {
+                window.location.href = "/main_page";
+            } else {
+                console.error(data.message);
+                alert("Ошибка при выходе из системы");
+            }
+        } catch (error) {
+            console.error("Ошибка при выходе:", error);
+            alert("Не удалось выйти из системы");
+        }
+    };
+
+
+    const handleHelp = () => {
     window.location.href = "https://t.me/eruma1ra";
   };
 

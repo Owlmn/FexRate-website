@@ -41,6 +41,7 @@ export async function POST(req) {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
+        // Сохранение пользователя в Redis
         await redis.hmset(`user:${email}`, {
             email,
             password: hashedPassword,
@@ -51,6 +52,9 @@ export async function POST(req) {
 
         await redis.hset(`usernames`, username, email);
 
+        await redis.del(`favorites:${email}`);
+
+        // Установка cookie для текущего пользователя
         (await cookies()).set("user_email", email, {
             httpOnly: true,
             path: "/",

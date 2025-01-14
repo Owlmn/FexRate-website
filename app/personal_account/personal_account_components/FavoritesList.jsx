@@ -43,8 +43,9 @@ const FavoritesList = () => {
       try {
         let date = new Date();
         let day = String(date.getDate()).padStart(2, "0");
+        let month = String(date.getMonth()+1).padStart(2, "0");
         const response = await axios.get(
-            `https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${date.getMonth() + 1}/${day}/daily_json.js`
+            `https://www.cbr-xml-daily.ru/archive/${date.getFullYear()}/${month}/${day}/daily_json.js`
         );
         const regularData = [
           {

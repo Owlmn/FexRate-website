@@ -182,7 +182,6 @@ export default function Conversion({ children }) {
       " "
     );
     if (fractionalPart) {
-      // Remove trailing zeros
       const trimmedFractionalPart = fractionalPart.replace(/0+$/, "");
       return trimmedFractionalPart
         ? `${formattedIntegerPart}.${trimmedFractionalPart}`
@@ -198,7 +197,7 @@ export default function Conversion({ children }) {
       const fromRate = rates[fromCurrency];
       const toRate = rates[toCurrency];
       if (fromRate && toRate) {
-        const convertedAmount = ((fromValue * fromRate) / toRate).toFixed(5); // Исправление
+        const convertedAmount = ((fromValue * fromRate) / toRate).toFixed(5);
         return formatNumber(convertedAmount);
       }
     }
@@ -208,41 +207,42 @@ export default function Conversion({ children }) {
   const handleInputChange = (e) => {
     let inputValue = e.target.value.replace(/[^\d.,]/g, "");
 
-    if (
-      inputValue.startsWith("0") &&
-      inputValue.length > 1 &&
-      !inputValue.startsWith("0.")
-    ) {
-      inputValue = inputValue.replace(/^0+/, "0").replace(/^0+(\d+)/, "$1");
+    if (inputValue.startsWith("0") && !inputValue.startsWith("0.") && !inputValue.startsWith("0,")) {
+      inputValue = inputValue.replace(/^0+/, "0");
     }
 
-    if (inputValue && !/^\d/.test(inputValue)) {
+    if (inputValue && !/^[\d.,]/.test(inputValue)) {
       return;
     }
 
-    const numericValue = inputValue.replace(/\s/g, "").replace(",", ".");
+    const numericValue = inputValue.replace(",", ".");
+    setFromAmount(numericValue);
 
-    setFromAmount(formatNumber(numericValue));
-    if (activeButton === "Валюта") {
-      setToAmount(
-        calculateConversion(
-          numericValue,
-          selectedFromCurrency,
-          selectedToCurrency,
-          fiatRates
-        )
-      );
-    } else if (activeButton === "Криптовалюта") {
-      setToAmount(
-        calculateConversion(
-          numericValue,
-          selectedFromCurrency,
-          selectedToCurrency,
-          cryptoRates
-        )
-      );
+    if (numericValue) {
+      if (activeButton === "Валюта") {
+        setToAmount(
+            calculateConversion(
+                parseFloat(numericValue),
+                selectedFromCurrency,
+                selectedToCurrency,
+                fiatRates
+            )
+        );
+      } else if (activeButton === "Криптовалюта") {
+        setToAmount(
+            calculateConversion(
+                parseFloat(numericValue),
+                selectedFromCurrency,
+                selectedToCurrency,
+                cryptoRates
+            )
+        );
+      }
+    } else {
+      setToAmount("");
     }
   };
+
 
   const handleKeyPress = (e) => {
     const key = e.keyCode || e.which;
@@ -256,6 +256,12 @@ export default function Conversion({ children }) {
       ".",
     ];
     if (!allowedKeys.includes(e.key) && !/^\d$/.test(e.key)) {
+      e.preventDefault();
+    }
+    if (
+        (e.key === "." || e.key === ",") &&
+        (fromAmount.includes(".") || fromAmount.includes(","))
+    ) {
       e.preventDefault();
     }
     if (key === 13) {
@@ -332,7 +338,7 @@ export default function Conversion({ children }) {
       <div>
         <div className="convert">
           <div className="temp">
-            <div className="conversion_text">Онлайн обмен 24/7</div>
+            <div className="conversion_text">Онлайн конвертация 24/7</div>
             <div className="exchange_method">
               <button
                   className={`currency_button ${
@@ -359,7 +365,7 @@ export default function Conversion({ children }) {
               <input
                   type="text"
                   ref={inputRef}
-                  placeholder={fromAmount === "" ? "Введите сумму" : ""}
+                  placeholder="1"
                   value={fromAmount}
                   onChange={handleInputChange}
                   onKeyDown={handleKeyPress}
@@ -404,6 +410,7 @@ export default function Conversion({ children }) {
                 )}
               </div>
             </div>
+            <div className="hollow_thing"></div>
             <button className="switch" onClick={handleSwitch}>
               <svg
                   xmlns="http://www.w3.org/2000/svg"

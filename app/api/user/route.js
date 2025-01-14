@@ -56,3 +56,37 @@ export async function POST(req) {
         return Response.json({ message: "Внутренняя ошибка сервера" }, { status: 500 });
     }
 }
+
+export async function DELETE() {
+    try {
+        const cookieStore = await cookies();
+
+        // Проверяем наличие куки user_email
+        const email = cookieStore.get("user_email")?.value;
+
+        if (!email) {
+            return new Response(
+                JSON.stringify({ message: "Пользователь уже вышел из системы" }),
+                { status: 200, headers: { "Content-Type": "application/json" } }
+            );
+        }
+
+        cookieStore.set({
+            name: "user_email",
+            value: "",
+            expires: new Date(0),
+        });
+
+        return new Response(
+            JSON.stringify({ message: "Вы успешно вышли из системы" }),
+            { status: 200, headers: { "Content-Type": "application/json" } }
+        );
+    } catch (error) {
+        console.error("Ошибка на сервере:", error);
+        return new Response(
+            JSON.stringify({ message: "Внутренняя ошибка сервера" }),
+            { status: 500, headers: { "Content-Type": "application/json" } }
+        );
+    }
+}
+

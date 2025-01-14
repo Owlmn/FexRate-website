@@ -14,7 +14,6 @@ export async function POST(req) {
             });
         }
 
-        // Получаем данные пользователя из Redis
         const user = await redis.hgetall(`user:${email}`);
         if (!user.email) {
             return new Response(JSON.stringify({ message: "Пользователь не найден" }), {
@@ -32,7 +31,7 @@ export async function POST(req) {
         }
 
         (await cookies()).set("user_email", email, {
-            httpOnly: true, path: "/", maxAge: 60 * 60 * 24
+            path: "/", maxAge: 60 * 60 * 24
         });
 
         return new Response(JSON.stringify({ message: "Вход выполнен успешно" }), {

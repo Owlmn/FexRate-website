@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { fetchCurrencyData } from "/app/api/charts/FetchRates.js";
 import MiniChart from "./MiniChart";
 import styles from "./CurrencyCharts.module.css";
+import Image from "next/image";
 
 const currencyNames = {
     RUB: "Российский рубль",
@@ -165,8 +166,9 @@ const currencyNames = {
     ZWL: "Зимбабвийский доллар"
 };
 
-const CurrencyChart = ({ period }) => {
+const CurrencyChart = ({ period, showFavoritesOnly = false }) => {
     const [currencies, setCurrencies] = useState([]);
+    const [favorites, setFavorites] = useState([]);
     const [error, setError] = useState(null);
     const [showAll, setShowAll] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
@@ -182,18 +184,16 @@ const CurrencyChart = ({ period }) => {
                 if (period === "month") startDate.setMonth(now.getMonth() - 1);
                 if (period === "threeMonths") startDate.setMonth(now.getMonth() - 3);
 
-                const data = await fetchCurrencyData("USD", formatDate(startDate), formatDate(now)); // Используем доллар как базовую валюту
+                const data = await fetchCurrencyData("USD", formatDate(startDate), formatDate(now));
+
                 if (!data || !data.response) throw new Error("Данные API недоступны.");
 
                 const ratesByDate = data.response;
-
-                const currencyList = Object.keys(currencyNames); // Используем все валюты из currencyNames
+                const currencyList = Object.keys(currencyNames);
 
                 const formattedCurrencies = currencyList.map((currency) => {
                     const labels = Object.keys(ratesByDate).sort();
-
-                    const dataPoints = labels.map((date) => ratesByDate[date]["USD"] / ratesByDate[date][currency]); // Преобразуем данные относительно USD
-
+                    const dataPoints = labels.map((date) => ratesByDate[date]["USD"] / ratesByDate[date][currency]);
                     const currentValue = dataPoints[dataPoints.length - 1];
                     const previousValue = dataPoints[0];
                     const changePercent = (((currentValue - previousValue) / previousValue) * 100).toFixed(2);
@@ -208,6 +208,13 @@ const CurrencyChart = ({ period }) => {
                 });
 
                 setCurrencies(formattedCurrencies);
+
+                const favoritesResponse = await fetch("/api/favorites", {
+                    method: "GET",
+                    credentials: "include",
+                });
+                const favoritesData = await favoritesResponse.json();
+                setFavorites(favoritesData.favorites || []);
             } catch (err) {
                 setError(err.message);
             }
@@ -216,17 +223,30 @@ const CurrencyChart = ({ period }) => {
         fetchData();
     }, [period]);
 
-    const toggleShowAll = () => {
-        setShowAll(!showAll);
+    const toggleFavorite = async (currencyCode) => {
+        try {
+            const isFavorite = favorites.includes(currencyCode);
+            const response = await fetch("/api/favorites", {
+                method: isFavorite ? "DELETE" : "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ chartId: currencyCode }),
+            });
+
+            if (response.ok) {
+                setFavorites((prev) =>
+                    isFavorite ? prev.filter((code) => code !== currencyCode) : [...prev, currencyCode]
+                );
+            }
+        } catch (err) {
+            console.error("Ошибка обновления избранного:", err);
+        }
     };
 
-    const handleSearchChange = (event) => {
-        setSearchQuery(event.target.value.toLowerCase());
-    };
-
-    const filteredCurrencies = currencies.filter((currency) =>
-        currency.name.toLowerCase().includes(searchQuery)
-    );
+    const filteredCurrencies = currencies.filter((currency) => {
+        const matchesSearch = currency.name.toLowerCase().includes(searchQuery);
+        const matchesFavorites = !showFavoritesOnly || favorites.includes(currency.code);
+        return matchesSearch && matchesFavorites;
+    });
 
     return (
         <div className={styles.currencyList}>
@@ -240,7 +260,7 @@ const CurrencyChart = ({ period }) => {
                             className={styles.searchInput}
                             placeholder="Поиск по валютам"
                             value={searchQuery}
-                            onChange={handleSearchChange}
+                            onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
                         />
                     </div>
 
@@ -249,7 +269,7 @@ const CurrencyChart = ({ period }) => {
                             <div className={styles.currencyInfo}>
                                 <p className={styles.currencyName}>{currency.name}</p>
                                 <p className={styles.currencyCode}>{currency.code}</p>
-                                <p className={styles.currencyPrice}>{currency.price} $</p> {/* Цена в долларах */}
+                                <p className={styles.currencyPrice}>{currency.price} $</p>
                                 <p
                                     className={`${styles.currencyChange} ${
                                         currency.change < 0 ? styles.negative : styles.positive
@@ -259,9 +279,24 @@ const CurrencyChart = ({ period }) => {
                                 </p>
                             </div>
                             <MiniChart dataPoints={currency.dataPoints} />
+                            <button
+                                className={`${styles.favoriteButton} ${
+                                    favorites.includes(currency.code) ? styles.favorited : ""
+                                }`}
+                                onClick={() => toggleFavorite(currency.code)}
+                            >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M8.58699 8.236L11.185 3.004C11.2606 2.85259 11.3769 2.72523 11.5209 2.63622C11.6648 2.54721 11.8307 2.50006 12 2.50006C12.1692 2.50006 12.3351 2.54721 12.4791 2.63622C12.6231 2.72523 12.7394 2.85259 12.815 3.004L15.413 8.236L21.221 9.08C21.3885 9.10323 21.5461 9.17309 21.6759 9.28161C21.8056 9.39013 21.9022 9.53294 21.9546 9.69373C22.0071 9.85452 22.0133 10.0268 21.9725 10.191C21.9317 10.3551 21.8456 10.5045 21.724 10.622L17.522 14.692L18.514 20.442C18.641 21.18 17.861 21.742 17.194 21.394L12 18.678L6.80499 21.394C6.13899 21.743 5.35899 21.18 5.48599 20.441L6.47799 14.691L2.27599 10.621C2.15498 10.5034 2.06939 10.3542 2.02896 10.1903C1.98852 10.0265 1.99487 9.85457 2.04726 9.69415C2.09966 9.53373 2.19601 9.39122 2.32536 9.28284C2.45471 9.17445 2.61188 9.10452 2.77899 9.081L8.58699 8.236Z"
+                                        fill="currentColor" stroke="#B3B3B3" strokeWidth="1.5" strokeLinecap="round"
+                                        strokeLinejoin="round"/>
+                                </svg>
+                            </button>
                         </div>
                     ))}
-                    <button className={styles.showMoreButton} onClick={toggleShowAll}>
+
+                    <button className={styles.showMoreButton} onClick={() => setShowAll(!showAll)}>
                         {showAll ? "Скрыть" : "Показать все"}
                     </button>
                 </>
@@ -271,3 +306,4 @@ const CurrencyChart = ({ period }) => {
 };
 
 export default CurrencyChart;
+
